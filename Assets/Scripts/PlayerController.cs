@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     //------ Jump Method 🆙 ------//
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        if (Input.GetKey(KeyCode.Space) && isGround)
         {
             controlAnim.SetBool("IsJumping", true);
             rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
@@ -83,7 +84,11 @@ public class PlayerController : MonoBehaviour
          
     private void Update()
     {
-       WalkAnimation();   
+       WalkAnimation();
+        if (trPlayer.position.y < -2)
+        {
+            SceneManager.LoadScene("Red World");
+        }
     }
 
     private void FixedUpdate()
