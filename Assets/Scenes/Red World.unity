@@ -393,8 +393,6 @@ MonoBehaviour:
   inventory: 0
   controlAnim: {fileID: 0}
   gameManager: {fileID: 1810196553}
-  gameOverText: {fileID: 1218080121}
-  restartButton: {fileID: 375472779}
   isGameActive: 0
 --- !u!114 &282863191
 MonoBehaviour:
@@ -609,9 +607,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1810196553}
+      - m_Target: {fileID: 11500000, guid: cfa77b7b84261924bb71ee13e59bc129, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
