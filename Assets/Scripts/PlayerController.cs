@@ -1,4 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +14,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed, jumpSpeed;
     [SerializeField] private int inventory = 0;
     [SerializeField] private Animator controlAnim;
+    private ButtonController buttonController;
+    private float dieBound = -5.0f;
+    [SerializeField] private GameManager gameManager;
 
+    public bool isGameActive;
+
+    void Start() 
+    {
+       isGameActive = true;
+    }
 
     private void Awake()
     {
@@ -83,7 +97,14 @@ public class PlayerController : MonoBehaviour
          
     private void Update()
     {
-       WalkAnimation();   
+       WalkAnimation(); 
+
+       if (transform.position.y < dieBound)
+       {
+            Debug.Log ("you die");
+            gameManager.Die();
+            
+       }  
     }
 
     private void FixedUpdate()
@@ -91,4 +112,6 @@ public class PlayerController : MonoBehaviour
         Jump();
         rbPlayer.MovePosition(trPlayer.position + new Vector3(dirX * speed, 0, 0));
     }
+
+    
 }
