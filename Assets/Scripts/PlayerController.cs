@@ -10,8 +10,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed, jumpSpeed;
     [SerializeField] private int inventory = 0;
     [SerializeField] private Animator controlAnim;
+    [SerializeField] private AudioManager audiop;
 
 
+    private void Start()
+    {
+        audiop = FindAnyObjectByType<AudioManager>();
+    }
     private void Awake()
     {
         rbPlayer = GetComponent<Rigidbody>();
@@ -26,6 +31,7 @@ public class PlayerController : MonoBehaviour
         {
             controlAnim.SetBool("IsJumping", true);
             rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            audiop.PlaySFX(audiop.jump);
             isGround = false;
         }
     }
@@ -48,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (movement.magnitude > 0.1f)
         {
-            transform.Translate(movement.normalized * speed * Time.deltaTime, Space.World);  // Move the character
+            transform.Translate(movement.normalized * speed * Time.deltaTime, Space.World);// Move the character
         }
 
         if (dirX != 0)
