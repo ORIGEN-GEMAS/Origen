@@ -33,13 +33,15 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        if (Input.GetKey(KeyCode.Space) && isGround)
-        {
+        
+        
             controlAnim.SetBool("IsJumping", true);
             rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             audiop.PlaySFX(audiop.jump);
             isGround = false;
-        }
+
+            Debug.Log("saltando");
+        
     }
 
     /// <summary>
@@ -86,8 +88,13 @@ public class PlayerController : MonoBehaviour
          
     private void Update()
     {
-        Walk();
-        Jump();
+        if (Input.GetKey(KeyCode.Space) && isGround)
+        {
+            Jump();
+        }
+            
+       Walk();
+       
         if (trPlayer.position.y < -2)
         {
             SceneManager.LoadScene("Red World");
