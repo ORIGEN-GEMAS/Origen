@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator controlAnim;
     [SerializeField] private AudioManager audiop;
 
+    private void Start()
+    {
+        audiop = FindAnyObjectByType<AudioManager>();
+    }
     private void Awake()
     {
         rbPlayer = GetComponent<Rigidbody>();
