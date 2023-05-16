@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b562576716bec9a4a938c29cde0d0338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 1235496269}
+  musicSource: {fileID: 1208305376}
   SFXSource: {fileID: 357437507}
   redWorld: {fileID: 8300000, guid: a90eafea478833f4cb84c2fd0a61f384, type: 3}
   menu: {fileID: 0}
@@ -174,8 +174,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1235496270}
   - {fileID: 357437508}
+  - {fileID: 1208305375}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -467,8 +467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a318bab2894fd4d8971b9e2a92ea32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  distance: 0.1
+  speed: 0
+  distance: 0
   direction: 0
 --- !u!4 &111596786 stripped
 Transform:
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 282863190}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -993,7 +993,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 32416466}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &363530089
 GameObject:
@@ -6213,7 +6213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distance: 0.5
+  distance: 0.2
   direction: 1
 --- !u!65 &421954538
 BoxCollider:
@@ -6613,8 +6613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distance: 0.3
-  direction: 1
+  distance: 0.5
+  direction: 0
 --- !u!1 &850669542
 GameObject:
   m_ObjectHideFlags: 0
@@ -7058,7 +7058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distance: 0.5
+  distance: 0.2
   direction: 1
 --- !u!1 &994054967
 GameObject:
@@ -7108,7 +7108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distance: 0.5
+  distance: 0.2
   direction: 1
 --- !u!65 &994054970
 BoxCollider:
@@ -7239,8 +7239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distance: 0.2
-  direction: 1
+  distance: 0.5
+  direction: 0
 --- !u!65 &995679843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7455,6 +7455,135 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 282863184}
   camerat: {fileID: 1137437211}
+--- !u!1 &1208305374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1208305375}
+  - component: {fileID: 1208305376}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1208305375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208305374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 32416466}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1208305376
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208305374}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 5385541614887650536, guid: c7113d8a08598c546ae1fa5145c37cfa,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1273352597
 GameObject:
   m_ObjectHideFlags: 0
@@ -12595,7 +12724,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406819029}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.68, y: -2.87, z: 2.71}
+  m_LocalPosition: {x: -0.68, y: -4.38, z: 2.71}
   m_LocalScale: {x: 4.82, y: 2.09, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12802,7 +12931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distance: 0.5
+  distance: 0.2
   direction: 1
 --- !u!65 &1492076157
 BoxCollider:
@@ -13275,8 +13404,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distance: 0.2
-  direction: 1
+  distance: 0.5
+  direction: 0
 --- !u!65 &1766101237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13487,7 +13616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distance: 0.4
+  distance: 0.5
   direction: 0
 --- !u!1 &1860144218
 GameObject:
@@ -13945,7 +14074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distance: 0.5
+  distance: 0.2
   direction: 0
 --- !u!1 &1993737032
 GameObject:
@@ -13996,7 +14125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   distance: 0.2
-  direction: 1
+  direction: 0
 --- !u!65 &1993737035
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14585,7 +14714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   distance: 0.2
-  direction: 1
+  direction: 0
 --- !u!1001 &6338506377355877348
 PrefabInstance:
   m_ObjectHideFlags: 0

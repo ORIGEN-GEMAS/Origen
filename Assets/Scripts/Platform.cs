@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Platforms : MonoBehaviour
+public class Platform : MonoBehaviour
 {
     [SerializeField] private float speed; // The speed at which the platform moves
     [SerializeField] private float distance; // The distance the platform can move

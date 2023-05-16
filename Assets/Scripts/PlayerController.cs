@@ -20,16 +20,12 @@ public class PlayerController : MonoBehaviour
     {
         audiop = FindAnyObjectByType<AudioManager>();
     }
+
     private void Awake()
     {
         rbPlayer = GetComponent<Rigidbody>();
         trPlayer = GetComponent<Transform>();
         controlAnim = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
-        audiop = FindAnyObjectByType<AudioManager>();
     }
     
     /// <summary>
@@ -70,7 +66,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
@@ -91,6 +87,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Walk();
+        Jump();
         if (trPlayer.position.y < -2)
         {
             SceneManager.LoadScene("Red World");
@@ -99,7 +96,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Jump();
         rbPlayer.MovePosition(trPlayer.position + new Vector3(dirX * speed, 0, 0));
     }
 }
