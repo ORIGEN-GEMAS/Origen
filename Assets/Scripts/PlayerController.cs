@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,17 +10,17 @@ public class PlayerController : MonoBehaviour
     private bool isGround = true;
     private float dirX;
     [SerializeField] private float speed, jumpSpeed;
+
+    /// <summary>
+    /// Player's inventory count. It counts the gems that the player has.
+    /// </summary>
     [SerializeField] private int inventory = 0;
     [SerializeField] private Animator controlAnim;
-    private ButtonController buttonController;
-    private float dieBound = -5.0f;
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioManager audiop;
 
-    public bool isGameActive;
-
-    void Start() 
+    private void Start()
     {
-       isGameActive = true;
+        audiop = FindAnyObjectByType<AudioManager>();
     }
 
     private void Awake()
@@ -31,52 +29,48 @@ public class PlayerController : MonoBehaviour
         trPlayer = GetComponent<Transform>();
         controlAnim = GetComponent<Animator>();
     }
-
-    //------ Jump Method 🆙 ------//
+    
+    /// <summary>
+    /// This method is responsible for the player's jump action and animation.
+    /// </summary>
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
-        {
+        
+        
             controlAnim.SetBool("IsJumping", true);
             rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            audiop.PlaySFX(audiop.jump);
             isGround = false;
-        }
+
+            Debug.Log("saltando");
+        
     }
 
-    //------ Walk Method 🚶🏻 ------//
-    private void WalkAnimation()
+    /// <summary>
+    /// This method is responsible for the player's walk action and animation.
+    /// </summary>
+    private void Walk()
     {
-
         dirX = Input.GetAxis("Horizontal");  // Get the horizontal input from the user
         Vector3 movement = new Vector3(dirX, 0, 0);
 
-        if (dirX < 0)
-        {
-            trPlayer.localScale = new Vector2(-0.5f, trPlayer.localScale.y);
-        }
-        else
-        {
-            trPlayer.localScale = new Vector2(0.5f, trPlayer.localScale.y);
-        }
-
-        if (movement.magnitude > 0.1f)
-        {
-            transform.Translate(movement.normalized * speed * Time.deltaTime, Space.World);  // Move the character
-        }
-
         if (dirX != 0)
         {
+            trPlayer.rotation = Quaternion.Euler(0, dirX > 0 ? 0 : 180, 0);
             controlAnim.SetBool("IsWalking", true);
         }
         else
         {
             controlAnim.SetBool("IsWalking", false);
         }
+
+        if (movement.magnitude > 0.1f)
+        {
+            transform.Translate(movement.normalized * speed * Time.deltaTime, Space.World);// Move the character
+        }
     }
 
-
-    //------ Condition for it to jump only if it is touching the ground and not infinitely 🔃 ------//
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
@@ -85,7 +79,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //------ Method to get the gems 💎 ------//
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Gem"))
@@ -97,19 +90,21 @@ public class PlayerController : MonoBehaviour
          
     private void Update()
     {
-       WalkAnimation(); 
-
-       if (transform.position.y < dieBound)
-       {
-            Debug.Log ("you die");
-            gameManager.Die();
+        if (Input.GetKey(KeyCode.Space) && isGround)
+        {
+            Jump();
+        }
             
-       }  
+       Walk();
+       
+        if (trPlayer.position.y < -2)
+        {
+            SceneManager.LoadScene("Red World");
+        }
     }
 
     private void FixedUpdate()
     {
-        Jump();
         rbPlayer.MovePosition(trPlayer.position + new Vector3(dirX * speed, 0, 0));
     }
 
