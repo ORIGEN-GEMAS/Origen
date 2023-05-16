@@ -145,9 +145,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 13
-        width: 244
-        height: 277
+        y: 6
+        width: 234
+        height: 283
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78aab89ce647636498133a1671d63800
-      internalID: 1065935951
+      spriteID: 4258aad5a1f979143b8c85376d20a9ea
+      internalID: 643643735
       vertices: []
       indices: 
       edges: []
@@ -165,10 +165,10 @@ TextureImporter:
       name: Walking red_1
       rect:
         serializedVersion: 2
-        x: 390
-        y: 10
-        width: 260
-        height: 280
+        x: 386
+        y: 6
+        width: 233
+        height: 279
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de47c5e95fc73224ea76a608109e579b
-      internalID: 1821621115
+      spriteID: 23ad1ae8b9a66c84b95052b2ed16b7be
+      internalID: -358659888
       vertices: []
       indices: 
       edges: []
@@ -186,10 +186,10 @@ TextureImporter:
       name: Walking red_2
       rect:
         serializedVersion: 2
-        x: 821
-        y: 10
-        width: 235
-        height: 273
+        x: 778
+        y: 6
+        width: 234
+        height: 279
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,8 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b564020168009a14aa036ba26883f6dd
-      internalID: -404814299
+      spriteID: 46a0cad392fa9aa4daf6d9199ad1a3a2
+      internalID: -282511859
       vertices: []
       indices: 
       edges: []
@@ -207,10 +207,10 @@ TextureImporter:
       name: Walking red_3
       rect:
         serializedVersion: 2
-        x: 1160
-        y: 12
-        width: 319
-        height: 277
+        x: 1161
+        y: 6
+        width: 233
+        height: 279
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,8 +218,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b583efe49b2b44418e5876b7e072d2b
-      internalID: -286954717
+      spriteID: 05dea1f1b57328d4ba89f249447696ff
+      internalID: 1622206672
       vertices: []
       indices: 
       edges: []
@@ -228,10 +228,10 @@ TextureImporter:
       name: Walking red_4
       rect:
         serializedVersion: 2
-        x: 1599
-        y: 12
-        width: 310
-        height: 280
+        x: 1543
+        y: 6
+        width: 234
+        height: 289
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,8 +239,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ca8df72684e3de4c970b54243a22f79
-      internalID: -1847681212
+      spriteID: 91ebda7ceebdf224fbd692d458dfa2c9
+      internalID: 1201825109
       vertices: []
       indices: 
       edges: []
@@ -249,10 +249,10 @@ TextureImporter:
       name: Walking red_5
       rect:
         serializedVersion: 2
-        x: 2017
-        y: 12
-        width: 255
-        height: 282
+        x: 1926
+        y: 3
+        width: 233
+        height: 292
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 580a969f4cce4524fb8f03efafc3a885
-      internalID: 1337484572
+      spriteID: 5ef87da89c7c5b5498ae29e8451b4514
+      internalID: 559594393
       vertices: []
       indices: 
       edges: []
@@ -270,10 +270,10 @@ TextureImporter:
       name: Walking red_6
       rect:
         serializedVersion: 2
-        x: 2410
-        y: 12
-        width: 266
-        height: 284
+        x: 2312
+        y: 3
+        width: 233
+        height: 292
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,8 +281,218 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ffc6a3b714c4aa4aa85bb89ecbb2487
-      internalID: -2024773421
+      spriteID: 8f874e8af72abf042be695dbccd8364c
+      internalID: -1423892551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_7
+      rect:
+        serializedVersion: 2
+        x: 2694
+        y: 3
+        width: 237
+        height: 295
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1253bf9fad263534b9c34b153ea91dc5
+      internalID: 1364657843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_8
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 6
+        width: 259
+        height: 289
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 942dc621fbe57c246b41693ee06324f1
+      internalID: -1882070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_9
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 3
+        width: 253
+        height: 292
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa401efb4b5cfe4ebf6219479e40235
+      internalID: -1643596887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_10
+      rect:
+        serializedVersion: 2
+        x: 3943
+        y: 3
+        width: 233
+        height: 292
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27675b88ab0ee04eb9217435c78e35a
+      internalID: 2003095140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_11
+      rect:
+        serializedVersion: 2
+        x: 4335
+        y: 3
+        width: 233
+        height: 292
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ece170ce63aada4b8f1126214ccfd10
+      internalID: 678838995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_12
+      rect:
+        serializedVersion: 2
+        x: 4734
+        y: 6
+        width: 233
+        height: 289
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c07b89cd0f0f2f44bb800b65d3951e9
+      internalID: -363462921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_13
+      rect:
+        serializedVersion: 2
+        x: 5136
+        y: 6
+        width: 236
+        height: 289
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764179a5b1b5ceb4b94a566f43fc8e5d
+      internalID: 12257995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_14
+      rect:
+        serializedVersion: 2
+        x: 5541
+        y: 3
+        width: 246
+        height: 289
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341487626cecaa642b700c4a0acec3e1
+      internalID: 378117171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_15
+      rect:
+        serializedVersion: 2
+        x: 5949
+        y: 6
+        width: 260
+        height: 289
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a578d75d51a7204f9446d5980edcaef
+      internalID: -41688726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking red_16
+      rect:
+        serializedVersion: 2
+        x: 6371
+        y: 16
+        width: 266
+        height: 289
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e42d60721dd564eb4f78c6b79f130a
+      internalID: -846892049
       vertices: []
       indices: 
       edges: []
@@ -290,7 +500,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 21b808803a7e21d47873dea32e492cba
+    spriteID: 9302b37b7e4e5094882581b251a48441
     internalID: 0
     vertices: []
     indices: 
@@ -298,13 +508,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walking red_0: 1065935951
-      Walking red_1: 1821621115
-      Walking red_2: -404814299
-      Walking red_3: -286954717
-      Walking red_4: -1847681212
-      Walking red_5: 1337484572
-      Walking red_6: -2024773421
+      Walking red_0: 643643735
+      Walking red_1: -358659888
+      Walking red_10: 2003095140
+      Walking red_11: 678838995
+      Walking red_12: -363462921
+      Walking red_13: 12257995
+      Walking red_14: 378117171
+      Walking red_15: -41688726
+      Walking red_16: -846892049
+      Walking red_2: -282511859
+      Walking red_3: 1622206672
+      Walking red_4: 1201825109
+      Walking red_5: 559594393
+      Walking red_6: -1423892551
+      Walking red_7: 1364657843
+      Walking red_8: -1882070
+      Walking red_9: -1643596887
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
