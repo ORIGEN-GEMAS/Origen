@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    private SceneManage scena;
     private Rigidbody rbPlayer;
     private Transform trPlayer;
     private bool isGround = true;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        scena = FindAnyObjectByType<SceneManage>();
         audiop = FindAnyObjectByType<AudioManager>();
     }
 
@@ -81,6 +83,8 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             inventory++;
+            scena.ChangeScence("Forest");
+
         }
     }
          
@@ -90,7 +94,7 @@ public class PlayerController : MonoBehaviour
         Jump();
         if (trPlayer.position.y < -2)
         {
-            SceneManager.LoadScene("Red World");
+            scena.Restart();
         }
     }
 
