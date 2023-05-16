@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  jumpSpeed: 4
+  jumpSpeed: 6
   inventory: 0
   controlAnim: {fileID: 282863185}
 --- !u!1 &303904839
@@ -5942,7 +5942,7 @@ GameObject:
   - component: {fileID: 420388755}
   m_Layer: 0
   m_Name: Obstacles
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
