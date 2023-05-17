@@ -34,15 +34,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        
-        
-            controlAnim.SetBool("IsJumping", true);
-            rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
-            audiop.PlaySFX(audiop.jump);
-            isGround = false;
-
-            Debug.Log("saltando");
-        
+        controlAnim.SetBool("IsJumping", true);
+        rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
+        audiop.PlaySFX(audiop.jump);
+        isGround = false;
     }
 
     /// <summary>
@@ -69,7 +64,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
@@ -78,7 +73,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Gem"))
         {
@@ -91,12 +86,12 @@ public class PlayerController : MonoBehaviour
          
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && isGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
             Jump();
         }
             
-       Walk();
+        Walk();
        
         if (trPlayer.position.y < -2)
         {
@@ -106,6 +101,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rbPlayer.MovePosition(trPlayer.position + new Vector3(dirX * speed, 0, 0));
+        rbPlayer.velocity = new Vector2(dirX * speed, rbPlayer.velocity.y);
     }
 }
