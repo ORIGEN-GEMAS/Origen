@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private SceneManage scena;
-    private Rigidbody rbPlayer;
+    private Rigidbody2D rbPlayer;
     private Transform trPlayer;
     private bool isGround = true;
     private float dirX;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        rbPlayer = GetComponent<Rigidbody>();
+        rbPlayer = GetComponent<Rigidbody2D>();
         trPlayer = GetComponent<Transform>();
         controlAnim = GetComponent<Animator>();
     }
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         
         
             controlAnim.SetBool("IsJumping", true);
-            rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
             audiop.PlaySFX(audiop.jump);
             isGround = false;
 
