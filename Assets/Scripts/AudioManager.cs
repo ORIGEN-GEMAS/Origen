@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip forestWorld;
     public AudioClip death;
     public AudioClip takeGems;
+    public AudioClip redworld2;
 
     /*private void Awake()
     {
