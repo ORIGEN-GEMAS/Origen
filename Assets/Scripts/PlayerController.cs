@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour
     private Transform trPlayer;
     private bool isGround = true;
     private float dirX;
+    private float camx;
+    [SerializeField] GameObject panelDeath;
+    [SerializeField] GameObject camerat;
+    [SerializeField] GameObject player;
     [SerializeField] private float speed, jumpSpeed;
 
     /// <summary>
@@ -21,6 +25,7 @@ public class PlayerController : MonoBehaviour
         scena = FindAnyObjectByType<SceneManage>();
         audiop = FindAnyObjectByType<AudioManager>();
     }
+    
 
     private void Awake()
     {
@@ -87,6 +92,7 @@ public class PlayerController : MonoBehaviour
          
     private void Update()
     {
+        camerat.transform.position = new Vector3(trPlayer.position.x, trPlayer.position.y, -1.76f);
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
             Jump();
@@ -94,9 +100,16 @@ public class PlayerController : MonoBehaviour
             
         Walk();
        
-        if (trPlayer.position.y < -2)
+        if (trPlayer.position.y < -0.15f)
         {
-            scena.Restart();
+            camx = trPlayer.position.x;
+            audiop.PlaySFX(audiop.takeGems);
+            camerat.transform.position = new Vector3(camx, -0.15f, -1.76f);
+            if (trPlayer.position.y < -7f)
+            {
+                panelDeath.SetActive(true);
+                Destroy(player);
+            }
         }
     }
 
