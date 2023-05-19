@@ -17,7 +17,7 @@ public class Platform : MonoBehaviour
         Horizontal
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D (Collision2D collision)
     {
         // If the colliding object has the tag "Player", set the platform as its parent
         if (collision.gameObject.CompareTag("Player"))
@@ -26,7 +26,7 @@ public class Platform : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         // If the object leaving the collision has the tag "Player", remove the platform as its parent
         if (collision.gameObject.CompareTag("Player"))
