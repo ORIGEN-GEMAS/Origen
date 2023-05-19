@@ -24,7 +24,7 @@ public class SceneManage : MonoBehaviour
     //Boton de pausa 🛑
     public void Stop() 
     {
-        sfx.PlaySFX(sfx.click); //Esta linea se puede borrar para no tener conflictos en otros proyectos
+        //sfx.PlaySFX(sfx.click); //Esta linea se puede borrar para no tener conflictos en otros proyectos
         Time.timeScale = 0;
         Debug.Log("Pausado");
     }
