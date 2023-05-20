@@ -38,6 +38,12 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = gameplay;
             musicSource.Play();
         }
+        if (SceneManager.GetActiveScene().name == "Forest")
+        {
+            musicSource.Pause();
+            musicSource.clip = forestWorld;
+            musicSource.Play();
+        }
 
 
     }
