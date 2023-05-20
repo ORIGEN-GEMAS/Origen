@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Inicio.unity
+    guid: 74be303f78709d44193bce5c4c9bbc66
+  - enabled: 1
+    path: Assets/Scenes/born.unity
+    guid: 5738dcedab714ed4fbe0c440475931ec
+  - enabled: 1
     path: Assets/Scenes/Red World.unity
     guid: 83c96e107a336684db06c45a02c42275
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: c486dd161ddcd3b4c95b250d6240e18e
   m_configObjects: {}
