@@ -5,10 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private SceneManage scena;
-    private Rigidbody rbPlayer;
+    private Rigidbody2D rbPlayer;
     private Transform trPlayer;
     private bool isGround = true;
     private float dirX;
+    private float camx;
+    [SerializeField] GameObject panelDeath;
+    [SerializeField] GameObject camerat;
+    [SerializeField] GameObject player;
     [SerializeField] private float speed, jumpSpeed;
 
     /// <summary>
@@ -23,10 +27,11 @@ public class PlayerController : MonoBehaviour
         scena = FindAnyObjectByType<SceneManage>();
         audiop = FindAnyObjectByType<AudioManager>();
     }
+    
 
     private void Awake()
     {
-        rbPlayer = GetComponent<Rigidbody>();
+        rbPlayer = GetComponent<Rigidbody2D>();
         trPlayer = GetComponent<Transform>();
         controlAnim = GetComponent<Animator>();
     }
@@ -36,15 +41,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        
-        
-            controlAnim.SetBool("IsJumping", true);
-            rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            audiop.PlaySFX(audiop.jump);
-            isGround = false;
-
-            Debug.Log("saltando");
-        
+        controlAnim.SetBool("IsJumping", true);
+        rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
+        audiop.PlaySFX(audiop.jump);
+        isGround = false;
     }
 
     /// <summary>
@@ -71,16 +71,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.CompareTag("Platform") && !isGround)
         {
             isGround = true;
             controlAnim.SetBool("IsJumping", false);
+            GetComponent<ParticleSystem>().Play();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Gem"))
         {
@@ -93,22 +94,30 @@ public class PlayerController : MonoBehaviour
          
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && isGround)
+        camerat.transform.position = new Vector3(trPlayer.position.x, trPlayer.position.y, -1.76f);
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
             Jump();
         }
             
-       Walk();
+        Walk();
        
-        if (trPlayer.position.y < -2)
+        if (trPlayer.position.y < -0.15f)
         {
-            scena.Restart();
+            camx = trPlayer.position.x;
+            audiop.PlaySFX(audiop.takeGems);
+            camerat.transform.position = new Vector3(camx, -0.15f, -1.76f);
+            if (trPlayer.position.y < -7f)
+            {
+                panelDeath.SetActive(true);
+                Destroy(player);
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        rbPlayer.MovePosition(trPlayer.position + new Vector3(dirX * speed, 0, 0));
+        rbPlayer.velocity = new Vector2(dirX * speed, rbPlayer.velocity.y);
     }
 
     

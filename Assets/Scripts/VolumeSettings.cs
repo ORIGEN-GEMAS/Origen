@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class VolumeSettings : MonoBehaviour
 {
-    [SerializeField] private GameObject soundOn;
-    [SerializeField] private GameObject soundOff;
+    //[SerializeField] private GameObject soundOn;
+    //[SerializeField] private GameObject soundOff;
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider SFXSlider;
@@ -28,7 +28,7 @@ public class VolumeSettings : MonoBehaviour
         float volume = musicSlider.value;
         myMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("musicVolume", volume);
-        if (volume <= 0.0001)
+        /*if (volume <= 0.0001)
         {
             soundOff.SetActive(true);
             soundOn.SetActive(false);
@@ -37,7 +37,7 @@ public class VolumeSettings : MonoBehaviour
         {
             soundOff.SetActive(false);
             soundOn.SetActive(true);
-        }
+        }*/
     }
     public void SetSFXVolume()
     {

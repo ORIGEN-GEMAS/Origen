@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     [Header("--------- Audio Clip ------------")]
-    public AudioClip redWorld;
+    public AudioClip gameplay;
     public AudioClip menu;
     public AudioClip click;
     public AudioClip walking;
@@ -32,13 +32,21 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Red World")
+        if (SceneManager.GetActiveScene().name == "Red World"|| SceneManager.GetActiveScene().name == "born")
         {
             musicSource.Pause();
-            musicSource.clip = redWorld;
+            musicSource.clip = gameplay;
             musicSource.Play();
         }
-}
+        if (SceneManager.GetActiveScene().name == "Forest")
+        {
+            musicSource.Pause();
+            musicSource.clip = forestWorld;
+            musicSource.Play();
+        }
+
+
+    }
 
     public void PlaySFX(AudioClip clip)
     {

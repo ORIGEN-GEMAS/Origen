@@ -14,6 +14,13 @@ public class SceneManage : MonoBehaviour
         // Metodo para buscar un audio e inicializarlo
         sfx = FindObjectOfType<AudioManager>(); //Esta linea se puede borrar para no tener conflictos en otros proyectos
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Restart();
+        }
+    }
 
     //Codigo de cambio de escena🔁
     public void ChangeScence(string Scena)
@@ -24,7 +31,7 @@ public class SceneManage : MonoBehaviour
     //Boton de pausa 🛑
     public void Stop() 
     {
-        sfx.PlaySFX(sfx.click); //Esta linea se puede borrar para no tener conflictos en otros proyectos
+        //sfx.PlaySFX(sfx.click); //Esta linea se puede borrar para no tener conflictos en otros proyectos
         Time.timeScale = 0;
         Debug.Log("Pausado");
     }
