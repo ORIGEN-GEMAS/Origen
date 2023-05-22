@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -117,4 +119,6 @@ public class PlayerController : MonoBehaviour
     {
         rbPlayer.velocity = new Vector2(dirX * speed, rbPlayer.velocity.y);
     }
+
+    
 }
