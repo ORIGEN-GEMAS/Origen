@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,12 +243,12 @@ MonoBehaviour:
   musicSource: {fileID: 1208305376}
   SFXSource: {fileID: 357437507}
   gameplay: {fileID: 8300000, guid: 2ae0d06cd568f244693d9bdf7a58a1b8, type: 3}
-  menu: {fileID: 0}
+  menu: {fileID: 8300000, guid: 5acf7d34d35e7db49a6f762c7e4a1955, type: 3}
   click: {fileID: 8300000, guid: ffd22862461012041884e13160909f7f, type: 3}
   walking: {fileID: 8300000, guid: 2fa14a272042cb349a44ca5c4c796b37, type: 3}
   jump: {fileID: 8300000, guid: e02a8c96a2490da48aca178e49069190, type: 3}
-  forestWorld: {fileID: 0}
-  death: {fileID: 0}
+  forestWorld: {fileID: 8300000, guid: 528dc3046e622b54fa7783d6abfa37c1, type: 3}
+  death: {fileID: 8300000, guid: e173a3e351961454a899ff735369b62d, type: 3}
   takeGems: {fileID: 0}
 --- !u!4 &32416466
 Transform:

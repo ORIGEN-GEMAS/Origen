@@ -32,6 +32,12 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Inicio")
+        {
+            musicSource.Pause();
+            musicSource.clip = menu;
+            musicSource.Play();
+        }
         if (SceneManager.GetActiveScene().name == "Red World"|| SceneManager.GetActiveScene().name == "born")
         {
             musicSource.Pause();

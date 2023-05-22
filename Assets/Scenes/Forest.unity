@@ -27617,7 +27617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495735513}
   m_LocalRotation: {x: -0.02730419, y: -0.006899849, z: 0.00018847571, w: -0.99960333}
-  m_LocalPosition: {x: -80.7713, y: 15.27, z: -49.497253}
+  m_LocalPosition: {x: -111.6, y: 15.27, z: -47.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29761,14 +29761,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd106ed7e67fc541acafff5d12954e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelDeath: {fileID: 0}
-  camerat: {fileID: 0}
+  panelDeath: {fileID: 1106911976}
+  camerat: {fileID: 1495735513}
   player: {fileID: 1741631991}
   speed: 0
   jumpSpeed: 0
   inventory: 0
   controlAnim: {fileID: 1741631993}
-  audiop: {fileID: 0}
+  audiop: {fileID: 385796051}
 --- !u!61 &1741631996
 BoxCollider2D:
   m_ObjectHideFlags: 0
