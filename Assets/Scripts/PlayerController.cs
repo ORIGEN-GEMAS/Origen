@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     //------ Jump Method 🆙 ------//
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        if ((Input.GetKeyDown(KeyCode.Space) && isGround) || ((Input.GetKeyDown(KeyCode.Joystick1Button0) == true)) && isGround)
         {
             controlAnim.SetBool("IsJumping", true);
             rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
