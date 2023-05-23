@@ -4,44 +4,63 @@ using UnityEngine;
 
 public class Frog : MonoBehaviour { 
 
-    //private Transform trFrog;
     private Rigidbody2D rbFrog;
-    [SerializeField] float jumpForce = 10f;
-    [SerializeField] float jumpDelay = 5f;
-    private bool isJumping;
-    private float nextJumpTime;
+    private bool isGround = true;
+    [SerializeField] private float minJumpForce = 12f;
+    [SerializeField] private float minJumpDelay = 3f;
 
-    void Awake()
+    [SerializeField] private float maxJumpForce = 18f;
+    [SerializeField] private float maxJumpDelay = 6f;
+
+    private float nextJumpTime;
+    private float randomJumpForce;
+    private float randomJumpDelay;
+
+    private void Awake()
     {
         rbFrog = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
+    {
+        SetForceAndDelay();
+    }
+
+    private void Update()
     {
         FrogJump();
     }
 
     /// <summary>
-    /// This method is responsible for the player's jump action and animation.
+    /// This method is responsible for the frog's jump action.
     /// </summary>
     private void FrogJump()
     {
-        if (Time.time >= nextJumpTime)
+        if (Time.time >= nextJumpTime && isGround)
         {
             Vector3 movement = new Vector3(-0.5f, 1, 0);
-            rbFrog.AddForce(movement * jumpForce, ForceMode2D.Impulse);
-            nextJumpTime = Time.time + jumpDelay;
-            isJumping = true;
-        }
-        else
-        {
-            isJumping = false;
+            rbFrog.AddForce(movement * randomJumpForce, ForceMode2D.Impulse);
+            nextJumpTime = Time.time + randomJumpDelay;
+            isGround = false;
         }
     }
 
     public bool IsJumping()
     {
-        return isJumping;
+        return !isGround;
+    }
+
+    private void SetForceAndDelay()
+    {
+        randomJumpDelay = Random.Range(minJumpDelay, maxJumpDelay);
+        randomJumpForce = Random.Range(minJumpForce, maxJumpForce);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isGround)
+        {
+            isGround = true;
+        }
     }
 }
