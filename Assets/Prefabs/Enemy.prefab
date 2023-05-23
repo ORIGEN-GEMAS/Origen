@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 722638616597435153}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Frog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df867b75fa332c1409af539180781cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minJumpForce: 20
+  minJumpForce: 12
   minJumpDelay: 3
-  maxJumpForce: 30
-  maxJumpDelay: 5
+  maxJumpForce: 18
+  maxJumpDelay: 6
 --- !u!61 &722638616597435154
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -101,6 +101,12 @@ public class PlayerController : MonoBehaviour
             controlAnim.SetBool("IsJumping", false);
             GetComponent<ParticleSystem>().Play();
         }
+
+        if (collision.gameObject.CompareTag("Frog"))
+        {
+            panelDeath.SetActive(true);
+            Destroy(player);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

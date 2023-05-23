@@ -6,10 +6,10 @@ public class Frog : MonoBehaviour {
 
     private Rigidbody2D rbFrog;
     private bool isGround = true;
-    [SerializeField] private float minJumpForce = 4f;
-    [SerializeField] private float minJumpDelay = 5f;
+    [SerializeField] private float minJumpForce = 12f;
+    [SerializeField] private float minJumpDelay = 3f;
 
-    [SerializeField] private float maxJumpForce = 8f;
+    [SerializeField] private float maxJumpForce = 18f;
     [SerializeField] private float maxJumpDelay = 6f;
 
     private float nextJumpTime;
