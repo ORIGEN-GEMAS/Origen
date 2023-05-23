@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         if (trPlayer.position.y < -0.15f)
         {
             camx = trPlayer.position.x;
-            audiop.PlaySFX(audiop.takeGems);
+            audiop.PlaySFX(audiop.death);
             camerat.transform.position = new Vector3(camx, -0.15f, -1.76f);
             if (trPlayer.position.y < -7f)
             {
