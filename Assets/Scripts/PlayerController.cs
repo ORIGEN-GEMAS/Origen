@@ -8,26 +8,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rbPlayer;
     private Transform trPlayer;
     private bool isGround = true;
-    private float dirX;
-    private float camx;
+    private float dirX, camx;
     [SerializeField] GameObject panelDeath;
     [SerializeField] GameObject camerat;
     [SerializeField] GameObject player;
-    [SerializeField] private float speed, jumpSpeed;
-
-    /// <summary>
-    /// Player's inventory count. It counts the gems that the player has.
-    /// </summary>
-    [SerializeField] private int inventory = 0;
+    [SerializeField] private float speed, jumpSpeed, cameraPositionZ;
     [SerializeField] private Animator controlAnim;
     [SerializeField] private AudioManager audiop;
-
-    private void Start()
-    {
-        scena = FindAnyObjectByType<SceneManage>();
-        audiop = FindAnyObjectByType<AudioManager>();
-    }
-    
+    [SerializeField] private float offsetCameraY;
 
     private void Awake()
     {
@@ -35,7 +23,41 @@ public class PlayerController : MonoBehaviour
         trPlayer = GetComponent<Transform>();
         controlAnim = GetComponent<Animator>();
     }
-    
+
+    private void Start()
+    {
+        scena = FindAnyObjectByType<SceneManage>();
+        audiop = FindAnyObjectByType<AudioManager>();
+    }
+
+    private void Update()
+    {
+        camerat.transform.position = new Vector3(trPlayer.position.x, trPlayer.position.y + offsetCameraY, cameraPositionZ);
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        {
+            Jump();
+        }
+
+        Walk();
+
+        if (trPlayer.position.y < -0.15f)
+        {
+            camx = trPlayer.position.x;
+            audiop.PlaySFX(audiop.death);
+            camerat.transform.position = new Vector3(camx, -0.15f, cameraPositionZ);
+            if (trPlayer.position.y < -7f)
+            {
+                panelDeath.SetActive(true);
+                Destroy(player);
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        rbPlayer.velocity = new Vector2(dirX * speed, rbPlayer.velocity.y);
+    }
+
     /// <summary>
     /// This method is responsible for the player's jump action and animation.
     /// </summary>
@@ -86,39 +108,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Gem"))
         {
             Destroy(other.gameObject);
-            inventory++;
             scena.ChangeScence("Forest");
-
         }
-    }
-         
-    private void Update()
-    {
-        camerat.transform.position = new Vector3(trPlayer.position.x, trPlayer.position.y, -1.76f);
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
-        {
-            Jump();
-        }
-            
-        Walk();
-       
-        if (trPlayer.position.y < -0.15f)
-        {
-            camx = trPlayer.position.x;
-            audiop.PlaySFX(audiop.death);
-            camerat.transform.position = new Vector3(camx, -0.15f, -1.76f);
-            if (trPlayer.position.y < -7f)
-            {
-                panelDeath.SetActive(true);
-                Destroy(player);
-            }
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        rbPlayer.velocity = new Vector2(dirX * speed, rbPlayer.velocity.y);
-    }
-
-    
+    }   
 }
