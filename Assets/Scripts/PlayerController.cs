@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         camerat.transform.position = new Vector3(trPlayer.position.x, trPlayer.position.y + offsetCameraY, cameraPositionZ);
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        if ((Input.GetKeyDown(KeyCode.Space) && isGround) || ((Input.GetKeyDown(KeyCode.Joystick1Button0) == true) && isGround))
         {
             Jump();
         }
@@ -127,7 +127,6 @@ public class PlayerController : MonoBehaviour
         {
             panelDeath.SetActive(true);
             audiop.PlaySFX(audiop.death);
-            Debug.Log("el sapo si mata");
             Destroy(player);
         }
     }   
