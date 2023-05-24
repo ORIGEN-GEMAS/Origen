@@ -3424,6 +3424,8 @@ MonoBehaviour:
   forestWorld: {fileID: 8300000, guid: 528dc3046e622b54fa7783d6abfa37c1, type: 3}
   death: {fileID: 8300000, guid: e173a3e351961454a899ff735369b62d, type: 3}
   takeGems: {fileID: 0}
+  nar1: {fileID: 0}
+  nar2: {fileID: 0}
 --- !u!4 &385796052
 Transform:
   m_ObjectHideFlags: 0
@@ -3866,7 +3868,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distortion: 0.08
   duration: 0.5
-  funguiParticle: {fileID: 0}
+  funguiParticle: {fileID: 7851966564927732737, guid: fc4256101c84238459cf50e9aaace63b,
+    type: 3}
 --- !u!1 &487331676
 GameObject:
   m_ObjectHideFlags: 0
@@ -18622,8 +18625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 722638616597435157, guid: d5d7265addb7c0746afd545ac4bf1d5e, type: 3}
-  minDelay: 4
-  maxDelay: 6
+  minDelay: 9
+  maxDelay: 14
 --- !u!4 &1105447644
 Transform:
   m_ObjectHideFlags: 0
@@ -20290,7 +20293,7 @@ PrefabInstance:
     - target: {fileID: 7200971383856415146, guid: 273c53e5fac9d9a4c930de6218f0f6a7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.306
+      value: -0.186
       objectReference: {fileID: 0}
     - target: {fileID: 7200971383856415146, guid: 273c53e5fac9d9a4c930de6218f0f6a7,
         type: 3}
@@ -20300,7 +20303,7 @@ PrefabInstance:
     - target: {fileID: 7200971383856415146, guid: 273c53e5fac9d9a4c930de6218f0f6a7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.52
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 7200971383856415146, guid: 273c53e5fac9d9a4c930de6218f0f6a7,
         type: 3}
@@ -30688,7 +30691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distortion: 0.08
   duration: 0.5
-  funguiParticle: {fileID: 0}
+  funguiParticle: {fileID: 7851966564927732737, guid: fc4256101c84238459cf50e9aaace63b,
+    type: 3}
 --- !u!1 &1974286585
 GameObject:
   m_ObjectHideFlags: 0
@@ -31679,7 +31683,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distortion: 0.08
   duration: 0.5
-  funguiParticle: {fileID: 0}
+  funguiParticle: {fileID: 7851966564927732737, guid: fc4256101c84238459cf50e9aaace63b,
+    type: 3}
 --- !u!1 &2079089777
 GameObject:
   m_ObjectHideFlags: 0

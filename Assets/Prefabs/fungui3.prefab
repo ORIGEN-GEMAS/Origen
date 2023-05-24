@@ -894,3 +894,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distortion: 0.08
   duration: 0.5
+  funguiParticle: {fileID: 7851966564927732737, guid: fc4256101c84238459cf50e9aaace63b,
+    type: 3}
