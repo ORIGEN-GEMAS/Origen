@@ -21,7 +21,7 @@ public class PanelController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "born")
         {
-            StartCoroutine(Credits(8.25f));
+            StartCoroutine(Credits(8.4f));
         }
         else if (SceneManager.GetActiveScene().name == "Forest")
         {
