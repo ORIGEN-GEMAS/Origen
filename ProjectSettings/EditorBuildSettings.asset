@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HidraCombat.unity
     guid: f0266fe01cea7e341aa70b0b72aba2eb
+  - enabled: 1
+    path: Assets/Scenes/Gems.unity
+    guid: 7529cea0769fd5140bb7340a2459507a
   m_configObjects: {}
