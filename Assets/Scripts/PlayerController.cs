@@ -112,7 +112,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator Gems(float tiempo,string escena)
     {
         audiop.PlaySFX(audiop.takeGems);
-        scena.Stop();
         yield return new WaitForSeconds(tiempo);
         scena.ChangeScence(escena);
     }
