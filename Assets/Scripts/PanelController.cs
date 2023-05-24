@@ -23,6 +23,10 @@ public class PanelController : MonoBehaviour
         {
             StartCoroutine(Credits(8f));
         }
+        else if (SceneManager.GetActiveScene().name == "Forest")
+        {
+            StartCoroutine(PanelDurationF(6f));
+        }
     }
 
     IEnumerator PanelDuration(float tiempo)
@@ -54,6 +58,14 @@ public class PanelController : MonoBehaviour
         Invoke("FadeOutText", tiempo - 2);
         credits[3].SetActive(false);
         SceneManager.LoadScene("Red World");
+    }
+    IEnumerator PanelDurationF(float tiempo)
+    {
+        Invoke("FadeOut", tiempo - 2);
+        yield return new WaitForSeconds(tiempo);
+        panelESC.SetActive(true);
+        yield return new WaitForSeconds(tiempo);
+        panelESC.SetActive(false);
     }
 
     public void FadeOut()

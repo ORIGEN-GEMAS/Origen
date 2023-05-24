@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneManage : MonoBehaviour
 {
-    private AudioManager sfx; //Esta linea se puede borrar para no tener conflictos en otros proyectos
+    private AudioManager sfx;
+    public string actual;//Esta linea se puede borrar para no tener conflictos en otros proyectos
 
     private void Start()
     {
         // Metodo para buscar un audio e inicializarlo
-        sfx = FindObjectOfType<AudioManager>(); //Esta linea se puede borrar para no tener conflictos en otros proyectos
+        sfx = FindObjectOfType<AudioManager>();
+        actual = SceneManager.GetActiveScene().name;//Esta linea se puede borrar para no tener conflictos en otros proyectos
     }
     private void Update()
     {

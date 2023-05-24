@@ -105,21 +105,30 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("d_ground"))
         {
             panelDeath.SetActive(true);
+            audiop.PlaySFX(audiop.death);
             Destroy(player);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Gem"))
+        if (other.gameObject.CompareTag("Gem")&& scena.actual=="Red World")
         {
             Destroy(other.gameObject);
             scena.ChangeScence("Forest");
         }
+        if (other.gameObject.CompareTag("Gem") && scena.actual == "Forest")
+        {
+            Destroy(other.gameObject);
+            scena.ChangeScence("HidraCombat");
+        }
 
         if (other.gameObject.CompareTag("Frog"))
         {
-            Debug.Log("si mata el sapo");
+            panelDeath.SetActive(true);
+            audiop.PlaySFX(audiop.death);
+            Debug.Log("el sapo si mata");
+            Destroy(player);
         }
     }   
 }
