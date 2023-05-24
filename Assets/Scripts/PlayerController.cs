@@ -127,7 +127,6 @@ public class PlayerController : MonoBehaviour
         {
             panelDeath.SetActive(true);
             audiop.PlaySFX(audiop.death);
-            Debug.Log("el sapo si mata");
             Destroy(player);
         }
     }   
