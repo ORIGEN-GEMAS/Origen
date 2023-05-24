@@ -119,7 +119,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Frog"))
         {
-            Debug.Log("si mata el sapo");
+            panelDeath.SetActive(true);
+            Destroy(player);
         }
     }   
 }
