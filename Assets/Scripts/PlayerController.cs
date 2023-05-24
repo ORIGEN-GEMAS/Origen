@@ -43,10 +43,10 @@ public class PlayerController : MonoBehaviour
         if (trPlayer.position.y < -0.15f)
         {
             camx = trPlayer.position.x;
-            audiop.PlaySFX(audiop.death);
             camerat.transform.position = new Vector3(camx, -0.15f, cameraPositionZ);
             if (trPlayer.position.y < -7f)
             {
+                audiop.PlaySFX(audiop.death);
                 panelDeath.SetActive(true);
                 Destroy(player);
             }
