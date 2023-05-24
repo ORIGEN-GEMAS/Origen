@@ -15,13 +15,13 @@ public class PanelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneManager.GetActiveScene().name=="Red World")
+        if (SceneManager.GetActiveScene().name=="Red World")
         {
             StartCoroutine(PanelDuration(6f));
         }
         else if (SceneManager.GetActiveScene().name == "born")
         {
-            StartCoroutine(Credits(8f));
+            StartCoroutine(Credits(8.25f));
         }
         else if (SceneManager.GetActiveScene().name == "Forest")
         {
@@ -57,6 +57,10 @@ public class PanelController : MonoBehaviour
         yield return new WaitForSeconds(tiempo);
         Invoke("FadeOutText", tiempo - 2);
         credits[3].SetActive(false);
+        credits[4].SetActive(true);
+        yield return new WaitForSeconds(tiempo);
+        Invoke("FadeOutText", tiempo);
+        credits[4].SetActive(false);
         SceneManager.LoadScene("Red World");
     }
     IEnumerator PanelDurationF(float tiempo)

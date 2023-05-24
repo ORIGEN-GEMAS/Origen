@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip forestWorld;
     public AudioClip death;
     public AudioClip takeGems;
+    public AudioClip nar1;
+    public AudioClip nar2;
 
     /*private void Awake()
     {
@@ -43,6 +45,10 @@ public class AudioManager : MonoBehaviour
             musicSource.Pause();
             musicSource.clip = gameplay;
             musicSource.Play();
+        }
+        if (SceneManager.GetActiveScene().name == "born")
+        {
+            PlaySFX(nar1);
         }
         if (SceneManager.GetActiveScene().name == "Forest")
         {
