@@ -109,18 +109,25 @@ public class PlayerController : MonoBehaviour
             Destroy(player);
         }
     }
+    IEnumerator Gems(float tiempo,string escena)
+    {
+        audiop.PlaySFX(audiop.takeGems);
+        scena.Stop();
+        yield return new WaitForSeconds(tiempo);
+        scena.ChangeScence(escena);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Gem")&& scena.actual=="Red World")
         {
             Destroy(other.gameObject);
-            scena.ChangeScence("Forest");
+            StartCoroutine(Gems(4f, "Forest"));
         }
         if (other.gameObject.CompareTag("Gem") && scena.actual == "Forest")
         {
             Destroy(other.gameObject);
-            scena.ChangeScence("HidraCombat");
+            StartCoroutine(Gems(4.3f, "HidraCombat"));
         }
 
         if (other.gameObject.CompareTag("Frog"))

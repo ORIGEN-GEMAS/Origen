@@ -249,9 +249,9 @@ MonoBehaviour:
   jump: {fileID: 8300000, guid: e02a8c96a2490da48aca178e49069190, type: 3}
   forestWorld: {fileID: 8300000, guid: 528dc3046e622b54fa7783d6abfa37c1, type: 3}
   death: {fileID: 8300000, guid: e173a3e351961454a899ff735369b62d, type: 3}
-  takeGems: {fileID: 0}
-  nar1: {fileID: 0}
-  nar2: {fileID: 0}
+  takeGems: {fileID: 8300000, guid: 11abb7b425b05414bb7d7fe61b676104, type: 3}
+  nar1: {fileID: 8300000, guid: 20193c2d25b894c4d8529fd5a3d4818b, type: 3}
+  nar2: {fileID: 8300000, guid: 23d866880f5f87f4389e79f751067e62, type: 3}
 --- !u!4 &32416466
 Transform:
   m_ObjectHideFlags: 0
@@ -25906,7 +25906,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f324d1791efdaac4db6fb27a13302911, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05297a6a2a497054aa765c75ba13d0cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
