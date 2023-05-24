@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Gem
   - Frog
+  - death ground
+  - d_ground
   layers:
   - Default
   - TransparentFX

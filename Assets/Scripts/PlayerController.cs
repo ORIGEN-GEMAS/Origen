@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<ParticleSystem>().Play();
         }
 
-        if (collision.gameObject.CompareTag("Frog"))
+        if (collision.gameObject.CompareTag("d_ground"))
         {
             panelDeath.SetActive(true);
             Destroy(player);
@@ -115,6 +115,11 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             scena.ChangeScence("Forest");
+        }
+
+        if (other.gameObject.CompareTag("Frog"))
+        {
+            Debug.Log("si mata el sapo");
         }
     }   
 }

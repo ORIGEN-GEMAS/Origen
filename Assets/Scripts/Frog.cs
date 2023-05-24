@@ -29,6 +29,7 @@ public class Frog : MonoBehaviour {
     private void Update()
     {
         FrogJump();
+        FindGround();
     }
 
     /// <summary>
@@ -38,17 +39,16 @@ public class Frog : MonoBehaviour {
     {
         if (Time.time >= nextJumpTime && isGround)
         {
+            //Movement set direction, it confirms gravityScale =1, next jumpTime is setting
             Vector3 movement = new Vector3(-0.5f, 1, 0);
             rbFrog.AddForce(movement * randomJumpForce, ForceMode2D.Impulse);
+            rbFrog.gravityScale = 1;
             nextJumpTime = Time.time + randomJumpDelay;
             isGround = false;
         }
     }
 
-    public bool IsJumping()
-    {
-        return !isGround;
-    }
+    
 
     private void SetForceAndDelay()
     {
@@ -56,11 +56,26 @@ public class Frog : MonoBehaviour {
         randomJumpForce = Random.Range(minJumpForce, maxJumpForce);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (!isGround)
+    //    {
+    //        isGround = true;
+    //    }
+    //}
+
+    private void FindGround()
     {
-        if (!isGround)
+        float ypos = transform.position.y;
+
+        if ( ypos <= 0.65f) 
         {
+            
+            rbFrog.gravityScale = 0;
+            rbFrog.velocity = Vector3.zero;
             isGround = true;
+            transform.position = new Vector3(transform.position.x, 0.66f, transform.position.z);
         }
     }
 }
+

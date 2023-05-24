@@ -5,8 +5,8 @@ using UnityEngine;
 public class FrogFactory : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    [SerializeField] private float minDelay = 3f;
-    [SerializeField] private float maxDelay = 5f;
+    [SerializeField] private float minDelay = 10f;
+    [SerializeField] private float maxDelay = 15f;
     private float nextSpawnTime;
 
     void Update()
