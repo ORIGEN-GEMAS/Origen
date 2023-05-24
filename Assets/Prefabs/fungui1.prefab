@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7200971383856415149}
   - component: {fileID: 7200971383856415144}
   - component: {fileID: 7200971383856415147}
+  - component: {fileID: 6284065726437328167}
   m_Layer: 0
   m_Name: fungui1
   m_TagString: Platform
@@ -610,3 +611,19 @@ PolygonCollider2D:
       - {x: -2.8327537, y: -24.615652}
       - {x: -2.6048307, y: -24.583092}
       - {x: -1.9536232, y: -24.45285}
+--- !u!114 &6284065726437328167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7200971383856415148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3388e0cf7b6c46489de8f6d82983d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distortion: 0.08
+  duration: 0.5
+  funguiParticle: {fileID: 7851966564927732737, guid: fc4256101c84238459cf50e9aaace63b,
+    type: 3}
