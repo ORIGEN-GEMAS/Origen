@@ -4,28 +4,40 @@ using UnityEngine;
 
 public class VenomController : MonoBehaviour
 {
-    Transform PosPlayer;
+    Transform posFocus;
 
-    [SerializeField] float speed;  
-    
+    [SerializeField] float speed; 
+    private void VenomMovement()
+    {
+        Vector3 dir = (posFocus.position - transform.position).normalized;
+        Vector3 posChange = dir * 41 * Time.fixedDeltaTime;
+         gameObject.transform.position += posChange;
+
+       }
 
     void Start()
     {
-        PosPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+        posFocus = GameObject.FindGameObjectWithTag("focus").transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         VenomMovement();
+        KillVenom();
     }
+   
 
-    private void VenomMovement()
+    
+
+    private void KillVenom()
     {
-        Vector3 mapPos = PosPlayer.position;
-        Vector3 posChange = Vector3.Lerp(transform.position, mapPos, 0.75f) * Time.fixedDeltaTime;
-        transform.position += posChange;
-        //posChange.x 
+        float x = transform.position.x;
+        float y = transform.position.y;
 
+        if (x < -85.7 && x > -86.3 && y < -6.7 && y> -7.3)
+        {
+            Destroy(gameObject);
+        }
     }
 }
