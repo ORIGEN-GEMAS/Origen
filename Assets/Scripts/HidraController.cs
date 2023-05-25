@@ -11,24 +11,26 @@ public class HidraController : MonoBehaviour
     private Vector3 initpos;
     private bool isAttacking;
     private int heads = 3;
+    private AudioManager audiop;
     
 
 
     private void Start()
     {
+        audiop = FindAnyObjectByType<AudioManager>();
         attackTime = Random.Range(6,10);
         hidraAnim = GetComponent<Animator>();  
     }
 
     private void Update()
     {
-        if (Time.time > attackTime && !isAttacking )
+        if (Time.time > attackTime && !isAttacking)
         {
             StartCoroutine (Attack());
         }
     }
 
-
+    
     IEnumerator  Attack()
     {
         isAttacking = true;

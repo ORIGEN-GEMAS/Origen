@@ -9,8 +9,10 @@ public class PlayerLevel3 : MonoBehaviour
     
     [SerializeField] private float jumpSpeed;
     [SerializeField] private Animator controlAnim;
-    [SerializeField] private AudioManager audiop;
+    private AudioManager audiop;
     [SerializeField] private GameObject power;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject panelDeath;
     
     private float attackTime;
     private Vector3 initpos;
@@ -23,7 +25,7 @@ public class PlayerLevel3 : MonoBehaviour
     {
         rbPlayer = GetComponent<Rigidbody2D>();
         controlAnim = GetComponent<Animator>();
-
+        audiop = FindAnyObjectByType<AudioManager>();
         
     }
 
@@ -52,7 +54,7 @@ public class PlayerLevel3 : MonoBehaviour
         rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
         //audiop.PlaySFX(audiop.jump);
         isGround = false;
-
+        audiop.PlaySFX(audiop.jump);
         Debug.Log("Si entre");
     }
 
@@ -72,6 +74,9 @@ public class PlayerLevel3 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("venom"))
         {
+            panelDeath.SetActive(true);
+            audiop.PlaySFX(audiop.death);
+            Destroy(player);
             Debug.Log("Me pego");
         }
     }

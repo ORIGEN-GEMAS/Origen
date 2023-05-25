@@ -27,6 +27,10 @@ public class PanelController : MonoBehaviour
         {
             StartCoroutine(PanelDurationF(6f));
         }
+        else if (SceneManager.GetActiveScene().name == "HidraCombat")
+        {
+            StartCoroutine(PanelDuration(16.5f));
+        }
     }
 
     IEnumerator PanelDuration(float tiempo)
