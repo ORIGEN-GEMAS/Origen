@@ -4,36 +4,51 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private SceneManage scena;
+    [SerializeField] private GameObject panelDeath;
+    [SerializeField] private GameObject camerat;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float speed, jumpSpeed, cameraPositionZ;
+    [SerializeField] private Animator animator;
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private float offsetCameraY;
+
+    private SceneManage sceneManager;
     private Rigidbody2D rbPlayer;
     private Transform trPlayer;
-    private bool isGround = true;
-    private float dirX, camx;
-    [SerializeField] GameObject panelDeath;
-    [SerializeField] GameObject camerat;
-    [SerializeField] GameObject player;
-    [SerializeField] private float speed, jumpSpeed, cameraPositionZ;
-    [SerializeField] private Animator controlAnim;
-    [SerializeField] private AudioManager audiop;
-    [SerializeField] private float offsetCameraY;
+    private float dirX, cameraPositionX;
+    private BoxCollider2D boxCollider;
+    private Vector2 standSize;
+    private Vector2 crouchSize;  
+    private Vector2 standOffset; 
+    private Vector2 crouchOffset; 
+    private bool isCrouching = false;  
+    private bool isGrounded = true;
+
 
     private void Awake()
     {
         rbPlayer = GetComponent<Rigidbody2D>();
         trPlayer = GetComponent<Transform>();
-        controlAnim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        scena = FindAnyObjectByType<SceneManage>();
-        audiop = FindAnyObjectByType<AudioManager>();
+        sceneManager = FindAnyObjectByType<SceneManage>();
+        audioManager = FindAnyObjectByType<AudioManager>();
+
+        boxCollider = GetComponent<BoxCollider2D>();
+
+        standSize = boxCollider.size;
+        standOffset = boxCollider.offset;
+        crouchSize = new Vector2(standSize.x, standSize.y / 2);  // Ajusta esto según tus necesidades
+        crouchOffset = new Vector2(standOffset.x, standOffset.y / 2); 
     }
 
     private void Update()
     {
         camerat.transform.position = new Vector3(trPlayer.position.x, trPlayer.position.y + offsetCameraY, cameraPositionZ);
-        if ((Input.GetKeyDown(KeyCode.Space) && isGround) || ((Input.GetKeyDown(KeyCode.Joystick1Button0) == true) && isGround))
+        if ((Input.GetKeyDown(KeyCode.Space) && isGrounded) || ((Input.GetKeyDown(KeyCode.Joystick1Button0) == true) && isGrounded))
         {
             Jump();
         }
@@ -42,14 +57,23 @@ public class PlayerController : MonoBehaviour
 
         if (trPlayer.position.y < -0.15f)
         {
-            camx = trPlayer.position.x;
-            camerat.transform.position = new Vector3(camx, -0.15f, cameraPositionZ);
+            cameraPositionX = trPlayer.position.x;
+            camerat.transform.position = new Vector3(cameraPositionX, -0.15f, cameraPositionZ);
             if (trPlayer.position.y < -7f)
             {
-                audiop.PlaySFX(audiop.death);
+                audioManager.PlaySFX(audioManager.death);
                 panelDeath.SetActive(true);
                 Destroy(player);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow) && !isCrouching)
+        {
+            Crouch();
+        }
+        else if (Input.GetKeyUp(KeyCode.DownArrow) && isCrouching)
+        {
+            StandUp();
         }
     }
 
@@ -63,10 +87,28 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        controlAnim.SetBool("IsJumping", true);
+        animator.SetBool("IsJumping", true);
         rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
-        audiop.PlaySFX(audiop.jump);
-        isGround = false;
+        audioManager.PlaySFX(audioManager.jump);
+        isGrounded = false;
+    }
+
+    private void Crouch()
+    {
+        animator.SetBool("IsCrouching", true);
+        animator.SetBool("IsStading", false);
+        boxCollider.size = crouchSize;  
+        boxCollider.offset = crouchOffset;  
+        isCrouching = true;
+    }
+
+    private void StandUp()
+    {
+        animator.SetBool("IsCrouching", false);
+        animator.SetBool("IsStading", true);
+        boxCollider.size = standSize;  
+        boxCollider.offset = standOffset; 
+        isCrouching = false;
     }
 
     /// <summary>
@@ -74,17 +116,17 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Walk()
     {
-        dirX = Input.GetAxis("Horizontal");  // Get the horizontal input from the user
+        dirX = Input.GetAxis("Horizontal"); 
         Vector3 movement = new Vector3(dirX, 0, 0);
 
         if (dirX != 0)
         {
             trPlayer.rotation = Quaternion.Euler(0, dirX > 0 ? 0 : 180, 0);
-            controlAnim.SetBool("IsWalking", true);
+            animator.SetBool("IsWalking", true);
         }
         else
         {
-            controlAnim.SetBool("IsWalking", false);
+            animator.SetBool("IsWalking", false);
         }
 
         if (movement.magnitude > 0.1f)
@@ -95,45 +137,72 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform") && !isGround)
-        {
-            isGround = true;
-            controlAnim.SetBool("IsJumping", false);
-            GetComponent<ParticleSystem>().Play();
-        }
+        HandlePlatformCollision(collision);
+        HandleDeathGroundCollision(collision);
+    }
 
+    private void HandlePlatformCollision(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform") && !isGrounded)
+        {
+            isGrounded = true;
+            animator.SetBool("IsJumping", false);
+            ParticleSystem ps = GetComponent<ParticleSystem>();
+            if (ps != null){
+                ps.Play();
+            }
+        }
+    }
+
+    private void HandleDeathGroundCollision(Collision2D collision)
+    {
         if (collision.gameObject.CompareTag("d_ground"))
         {
             panelDeath.SetActive(true);
-            audiop.PlaySFX(audiop.death);
+            audioManager.PlaySFX(audioManager.death);
             Destroy(player);
         }
     }
-    IEnumerator Gems(float tiempo,string escena)
+
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        audiop.PlaySFX(audiop.takeGems);
-        yield return new WaitForSeconds(tiempo);
-        scena.ChangeScence(escena);
+        ParticleSystem ps = GetComponent<ParticleSystem>();
+        if (collision.gameObject.CompareTag("Platform") && ps != null)
+        {
+            ps.Stop();
+            ps.Clear();
+        }
     }
+
+    private IEnumerator CollectGems(float delay,string nextScene)
+    {
+        audioManager.PlaySFX(audioManager.takeGems);
+        yield return new WaitForSeconds(delay);
+        sceneManager.ChangeScence(nextScene);
+    } 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Gem")&& scena.actual=="Red World")
+        if (other.gameObject.CompareTag("Gem"))
         {
             Destroy(other.gameObject);
-            StartCoroutine(Gems(4f, "Forest"));
-        }
-        if (other.gameObject.CompareTag("Gem") && scena.actual == "Forest")
-        {
-            Destroy(other.gameObject);
-            StartCoroutine(Gems(4.3f, "HidraCombat"));
+
+            switch (sceneManager.actual)
+            {
+                case "Red World":
+                    StartCoroutine(CollectGems(4f, "Forest"));
+                    break;
+                case "Forest":
+                    StartCoroutine(CollectGems(4.3f, "HidraCombat"));
+                    break;
+            }
         }
 
         if (other.gameObject.CompareTag("Frog"))
         {
             panelDeath.SetActive(true);
-            audiop.PlaySFX(audiop.death);
+            audioManager.PlaySFX(audioManager.death);
             Destroy(player);
         }
-    }   
+    }  
 }

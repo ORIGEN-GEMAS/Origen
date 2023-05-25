@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce234a9040e2f784fad65d8224687619
+guid: 274ff698d973e964f84bb05c24eef006
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,10 +67,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle red_0
+      name: hidra 3 heads_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 0
-        width: 310
-        height: 281
+        x: 12
+        y: 55
+        width: 585
+        height: 462
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da6c2dff5c4495841804a4bede7b1923
-      internalID: -1748733548
+      spriteID: ec1f890dc61539347aac9b6d996673b0
+      internalID: -835183512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle red_1
+      name: hidra 3 heads_1
       rect:
         serializedVersion: 2
-        x: 394
-        y: 0
-        width: 282
-        height: 283
+        x: 677
+        y: 55
+        width: 588
+        height: 462
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17150291373f4ae45850d8635aad1d1c
-      internalID: 1432900338
+      spriteID: 5535826994260cf4c881e3c44546b494
+      internalID: -764122128
       vertices: []
       indices: 
       edges: []
@@ -185,7 +185,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 40f84c7b87f005b468101b2d3c45e96e
+    spriteID: e9979edc9d5f734419c69e3465682a52
     internalID: 0
     vertices: []
     indices: 
@@ -193,8 +193,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle red_0: -1748733548
-      Idle red_1: 1432900338
+      hidra 3 heads_0: -835183512
+      hidra 3 heads_1: -764122128
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

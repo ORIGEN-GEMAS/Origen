@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce234a9040e2f784fad65d8224687619
+guid: f4888e36d7d14e34f90cd9ec21febe73
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,10 +67,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle red_0
+      name: 2heads_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 0
-        width: 310
-        height: 281
+        x: 56
+        y: 48
+        width: 598
+        height: 443
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da6c2dff5c4495841804a4bede7b1923
-      internalID: -1748733548
+      spriteID: c0aeff81684e6b24c849f653d5d1d09e
+      internalID: -2013411045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle red_1
+      name: 2heads_2
       rect:
         serializedVersion: 2
-        x: 394
-        y: 0
-        width: 282
-        height: 283
+        x: 849
+        y: 48
+        width: 584
+        height: 443
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17150291373f4ae45850d8635aad1d1c
-      internalID: 1432900338
+      spriteID: 7bab3558852b05f4391bcfeb618cb5e0
+      internalID: -98509310
       vertices: []
       indices: 
       edges: []
@@ -185,7 +185,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 40f84c7b87f005b468101b2d3c45e96e
+    spriteID: de87bc1dfc973144f9d27af3ea152906
     internalID: 0
     vertices: []
     indices: 
@@ -193,8 +193,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle red_0: -1748733548
-      Idle red_1: 1432900338
+      2heads_0: -2013411045
+      2heads_1: -1529351365
+      2heads_2: -98509310
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
