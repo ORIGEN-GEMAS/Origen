@@ -144,10 +144,10 @@ TextureImporter:
       name: Idle red_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 23
         y: 0
         width: 310
-        height: 282
+        height: 281
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,9 +165,9 @@ TextureImporter:
       name: Idle red_1
       rect:
         serializedVersion: 2
-        x: 364
+        x: 394
         y: 0
-        width: 310
+        width: 282
         height: 283
       alignment: 7
       pivot: {x: 0.5, y: 0}
