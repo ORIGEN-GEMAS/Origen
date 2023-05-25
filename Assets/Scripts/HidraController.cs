@@ -10,6 +10,7 @@ public class HidraController : MonoBehaviour
     private float attackTime;
     private Vector3 initpos;
     private bool isAttacking;
+    private int heads = 3;
     
 
 
@@ -41,4 +42,10 @@ public class HidraController : MonoBehaviour
         isAttacking = false;
     }
 
+
+    public void Damage()
+    {
+        heads--;
+        hidraAnim.SetInteger("heads",heads);
+    }
 }
