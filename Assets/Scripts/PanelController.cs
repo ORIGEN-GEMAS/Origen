@@ -29,7 +29,7 @@ public class PanelController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "HidraCombat")
         {
-            StartCoroutine(PanelDuration(16.5f));
+            StartCoroutine(PanelDurationF(4.5f));
         }
     }
 

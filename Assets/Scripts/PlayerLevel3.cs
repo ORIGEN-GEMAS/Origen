@@ -55,7 +55,7 @@ public class PlayerLevel3 : MonoBehaviour
         //audiop.PlaySFX(audiop.jump);
         isGround = false;
         audiop.PlaySFX(audiop.jump);
-        Debug.Log("Si entre");
+        Debug.Log("Salté");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -84,14 +84,14 @@ public class PlayerLevel3 : MonoBehaviour
     IEnumerator Attack()
     {
         isAttacking = true;
+        audiop.PlaySFX(audiop.irisAttack);
         controlAnim.SetBool("isAttacking", true);
         initpos = transform.position + new Vector3(-79,-4.2f, 0);
         Instantiate(power, initpos, Quaternion.identity);
-        yield return new WaitForSeconds(10f);
         yield return new WaitForSeconds(0.5f);
         controlAnim.SetBool("isAttacking", false);
+        yield return new WaitForSeconds(10f);
         isAttacking = false;
-
     }
 
 

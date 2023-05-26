@@ -18,6 +18,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip takeGems;
     public AudioClip nar1;
     public AudioClip nar2;
+    public AudioClip hidraAttack;
+    public AudioClip hidraHit;
+    public AudioClip hidraDeath;
+    public AudioClip irisAttack;
 
     /*private void Awake()
     {
