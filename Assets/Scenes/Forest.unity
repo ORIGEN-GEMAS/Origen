@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03972685, g: 0.0726142, b: 0.1247256, a: 1}
+  m_IndirectSpecularColor: {r: 0.04111985, g: 0.07249684, b: 0.12565836, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3426,6 +3426,10 @@ MonoBehaviour:
   takeGems: {fileID: 8300000, guid: d4f7c2b872e931a49aa634ee85c0f999, type: 3}
   nar1: {fileID: 8300000, guid: 20193c2d25b894c4d8529fd5a3d4818b, type: 3}
   nar2: {fileID: 8300000, guid: 23d866880f5f87f4389e79f751067e62, type: 3}
+  hidraAttack: {fileID: 0}
+  hidraHit: {fileID: 0}
+  hidraDeath: {fileID: 0}
+  irisAttack: {fileID: 0}
 --- !u!4 &385796052
 Transform:
   m_ObjectHideFlags: 0
@@ -11466,7 +11470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.3409424, y: -0.089355}
+  m_AnchoredPosition: {x: -1.3409424, y: -0.08935547}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &844367792
@@ -23864,8 +23868,8 @@ MonoBehaviour:
   panelDeath: {fileID: 1106911976}
   camerat: {fileID: 1495735513}
   player: {fileID: 1741631991}
-  speed: 8
-  jumpSpeed: 20
+  speed: 10
+  jumpSpeed: 22
   cameraPositionZ: -34
   animator: {fileID: 0}
   audioManager: {fileID: 0}

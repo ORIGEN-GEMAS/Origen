@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
     private void Crouch()
     {
         animator.SetBool("IsCrouching", true);
-        animator.SetBool("IsStading", false);
+        animator.SetBool("IsStanding", false);
         boxCollider.size = crouchSize;  
         boxCollider.offset = crouchOffset;  
         isCrouching = true;
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
     private void StandUp()
     {
         animator.SetBool("IsCrouching", false);
-        animator.SetBool("IsStading", true);
+        animator.SetBool("IsStanding", true);
         boxCollider.size = standSize;  
         boxCollider.offset = standOffset; 
         isCrouching = false;

@@ -36,7 +36,6 @@ public class HidraController : MonoBehaviour
  
     private IEnumerator Attack()
     {
-        Debug.Log("atacó");
         isAttacking = true;
         audiop.PlaySFX(audiop.hidraAttack);
         hidraAnim.SetBool("isAtacking", true);
@@ -53,11 +52,7 @@ public class HidraController : MonoBehaviour
     {
         heads--;
         audiop.PlaySFX(audiop.hidraHit);
-<<<<<<< HEAD
         hidraAnim.SetInteger("heads", heads);
-=======
-        hidraAnim.SetInteger("heads",heads);
->>>>>>> 4794721e9d811a0ee56e6a8450513fdab445ebbf
     }
 
     private void Death()
