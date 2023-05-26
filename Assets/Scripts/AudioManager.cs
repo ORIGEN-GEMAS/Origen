@@ -45,7 +45,7 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = menu;
             musicSource.Play();
         }
-        if (SceneManager.GetActiveScene().name == "Red World"|| SceneManager.GetActiveScene().name == "born"|| SceneManager.GetActiveScene().name == "HidraCombat")
+        if (SceneManager.GetActiveScene().name == "Red World"|| SceneManager.GetActiveScene().name == "born"|| SceneManager.GetActiveScene().name == "HidraCombat"|| SceneManager.GetActiveScene().name == "HumanCovert")
         {
             musicSource.Pause();
             musicSource.clip = gameplay;
