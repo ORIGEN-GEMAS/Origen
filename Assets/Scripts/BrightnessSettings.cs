@@ -5,17 +5,15 @@ using UnityEngine.UI;
 
 public class BrightnessSettings : MonoBehaviour
 {
-    [SerializeField] Slider slider;
-    [SerializeField] float sliderValue;
-    [SerializeField] Image panelBrightness;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Slider slider;
+    [SerializeField] private float sliderValue;
+    [SerializeField] private Image panelBrightness;
+
+    private void Start()
     {
         sliderValue = PlayerPrefs.GetFloat("brightness", 0.5f);
         panelBrightness.color = new Color(panelBrightness.color.r, panelBrightness.color.g, panelBrightness.color.b, sliderValue);
     }
-
- 
 
     public void ChangeSlider(float value)
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03972685, g: 0.0726142, b: 0.1247256, a: 1}
+  m_IndirectSpecularColor: {r: 0.04111985, g: 0.07249684, b: 0.12565836, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23868,8 +23868,8 @@ MonoBehaviour:
   panelDeath: {fileID: 1106911976}
   camerat: {fileID: 1495735513}
   player: {fileID: 1741631991}
-  speed: 8
-  jumpSpeed: 20
+  speed: 10
+  jumpSpeed: 22
   cameraPositionZ: -34
   animator: {fileID: 0}
   audioManager: {fileID: 0}
