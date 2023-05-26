@@ -186,6 +186,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Gem"))
         {
             Destroy(other.gameObject);
+            rbPlayer.Sleep();
 
             switch (sceneManager.actual)
             {
