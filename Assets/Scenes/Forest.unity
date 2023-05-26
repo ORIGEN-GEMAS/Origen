@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04111985, g: 0.07249684, b: 0.12565836, a: 1}
+  m_IndirectSpecularColor: {r: 0.03972685, g: 0.0726142, b: 0.1247256, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3430,6 +3430,7 @@ MonoBehaviour:
   hidraHit: {fileID: 0}
   hidraDeath: {fileID: 0}
   irisAttack: {fileID: 0}
+  victory: {fileID: 0}
 --- !u!4 &385796052
 Transform:
   m_ObjectHideFlags: 0
@@ -21938,10 +21939,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -24294,7 +24295,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4d39f3084c3f714fad585c5c5411533, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecb9e13b5db4cc84fafe736d28eb14e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

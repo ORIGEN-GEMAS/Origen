@@ -18,13 +18,13 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && menu.activeInHierarchy == true)
+        if (Input.GetKeyDown(KeyCode.P) && menu.activeInHierarchy == true)
         {
             audiop.PlaySFX(audiop.click);
             menu.SetActive(false);
             game.Continue();
         }
-        else if  (Input.GetKeyDown(KeyCode.Escape) && menu.activeInHierarchy == false)
+        else if  (Input.GetKeyDown(KeyCode.P) && menu.activeInHierarchy == false)
         {
             audiop.PlaySFX(audiop.click);
             menu.SetActive(true);

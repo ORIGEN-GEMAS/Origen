@@ -11,7 +11,7 @@ public class BrightnessSettings : MonoBehaviour
 
     private void Start()
     {
-        sliderValue = PlayerPrefs.GetFloat("brightness", 0.5f);
+        sliderValue = PlayerPrefs.GetFloat("brightness", 0f);
         panelBrightness.color = new Color(panelBrightness.color.r, panelBrightness.color.g, panelBrightness.color.b, sliderValue);
     }
 
