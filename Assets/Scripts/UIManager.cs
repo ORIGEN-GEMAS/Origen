@@ -7,10 +7,12 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject menu;
     private SceneManage game;
+    private AudioManager audiop;
     // Start is called before the first frame update
     void Start()
     {
         game = FindAnyObjectByType<SceneManage>();
+        audiop = FindAnyObjectByType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -18,16 +20,17 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && menu.activeInHierarchy == true)
         {
+            audiop.PlaySFX(audiop.click);
             menu.SetActive(false);
             game.Continue();
         }
         else if  (Input.GetKeyDown(KeyCode.Escape) && menu.activeInHierarchy == false)
-        { 
+        {
+            audiop.PlaySFX(audiop.click);
             menu.SetActive(true);
             game.Stop();
         }
     }
-
 
 }
 

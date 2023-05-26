@@ -7,12 +7,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneManage : MonoBehaviour
 {
-    private AudioManager sfx; //Esta linea se puede borrar para no tener conflictos en otros proyectos
+    private AudioManager sfx;
+    public string actual;//Esta linea se puede borrar para no tener conflictos en otros proyectos
 
     private void Start()
     {
         // Metodo para buscar un audio e inicializarlo
-        sfx = FindObjectOfType<AudioManager>(); //Esta linea se puede borrar para no tener conflictos en otros proyectos
+        sfx = FindObjectOfType<AudioManager>();
+        actual = SceneManager.GetActiveScene().name;//Esta linea se puede borrar para no tener conflictos en otros proyectos
+        if (actual == "moiras")
+        {
+            StartCoroutine(Moiras(34f));
+        }
     }
     private void Update()
     {
@@ -24,8 +30,7 @@ public class SceneManage : MonoBehaviour
 
     //Codigo de cambio de escena🔁
     public void ChangeScence(string Scena)
-    {
-        sfx.PlaySFX(sfx.click); //Esta linea se puede borrar para no tener conflictos en otros proyectos
+    { 
         SceneManager.LoadScene(Scena);
     }
     //Boton de pausa 🛑
@@ -56,5 +61,10 @@ public class SceneManage : MonoBehaviour
         sfx.PlaySFX(sfx.click); //Esta linea se puede borrar para no tener conflictos en otros proyectos
         Application.Quit();
         Debug.Log("Cerrado");
+    }
+    IEnumerator Moiras(float time)
+    {
+        yield return new WaitForSeconds(time);
+        ChangeScence("HidraCombat");
     }
 }

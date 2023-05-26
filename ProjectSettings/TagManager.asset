@@ -8,11 +8,17 @@ TagManager:
   - Ground
   - Gem
   - Frog
+  - death ground
+  - d_ground
+  - focus
+  - venom
+  - hidraFocus
+  - enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
   - 

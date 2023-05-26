@@ -16,6 +16,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip forestWorld;
     public AudioClip death;
     public AudioClip takeGems;
+    public AudioClip nar1;
+    public AudioClip nar2;
+    public AudioClip hidraAttack;
+    public AudioClip hidraHit;
+    public AudioClip hidraDeath;
+    public AudioClip irisAttack;
 
     /*private void Awake()
     {
@@ -38,17 +44,28 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = menu;
             musicSource.Play();
         }
-        if (SceneManager.GetActiveScene().name == "Red World"|| SceneManager.GetActiveScene().name == "born")
+        if (SceneManager.GetActiveScene().name == "Red World"|| SceneManager.GetActiveScene().name == "born"|| SceneManager.GetActiveScene().name == "HidraCombat")
         {
             musicSource.Pause();
             musicSource.clip = gameplay;
             musicSource.Play();
+        }
+        if (SceneManager.GetActiveScene().name == "born")
+        {
+            PlaySFX(nar1);
         }
         if (SceneManager.GetActiveScene().name == "Forest")
         {
             musicSource.Pause();
             musicSource.clip = forestWorld;
             musicSource.Play();
+        }
+        if (SceneManager.GetActiveScene().name == "moiras")
+        {
+            musicSource.Pause();
+            musicSource.clip = gameplay;
+            musicSource.Play();
+            PlaySFX(nar2);
         }
 
 
