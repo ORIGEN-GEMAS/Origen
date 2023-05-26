@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private float offsetCameraY;
 
+    private bool setMovement = true;
     private SceneManage sceneManager;
     private Rigidbody2D rbPlayer;
     private Transform trPlayer;
@@ -116,6 +117,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Walk()
     {
+        if (!setMovement)
+        {
+            return;
+        }
         dirX = Input.GetAxis("Horizontal"); 
         Vector3 movement = new Vector3(dirX, 0, 0);
 
@@ -186,7 +191,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Gem"))
         {
             Destroy(other.gameObject);
-            rbPlayer.Sleep();
+            setMovement = false;
 
             switch (sceneManager.actual)
             {

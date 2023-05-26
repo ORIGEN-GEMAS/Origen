@@ -14,10 +14,12 @@ public class HidraController : MonoBehaviour
     private bool isAttacking;
     private int heads = 3;
     private AudioManager audiop;
+    private SceneManage scene;
     
 
     private void Start()
     {
+        scene = FindAnyObjectByType<SceneManage>();
         audiop = FindAnyObjectByType<AudioManager>();
         attackTime = Random.Range(6,10);
         hidraAnim = GetComponent<Animator>();  
@@ -63,5 +65,12 @@ public class HidraController : MonoBehaviour
             Destroy(smoke);
             Destroy(gameObject);
         }
+        StartCoroutine(ChangetoFinal());
+        
+    }
+    IEnumerator ChangetoFinal()
+    {
+        yield return new WaitForSeconds(10f);
+        scene.ChangeScence("HumanCovert");
     }
 }
