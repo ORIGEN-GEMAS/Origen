@@ -18,6 +18,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip takeGems;
     public AudioClip nar1;
     public AudioClip nar2;
+    public AudioClip hidraAttack;
+    public AudioClip hidraHit;
+    public AudioClip hidraDeath;
+    public AudioClip irisAttack;
 
     /*private void Awake()
     {
@@ -55,6 +59,13 @@ public class AudioManager : MonoBehaviour
             musicSource.Pause();
             musicSource.clip = forestWorld;
             musicSource.Play();
+        }
+        if (SceneManager.GetActiveScene().name == "moiras")
+        {
+            musicSource.Pause();
+            musicSource.clip = gameplay;
+            musicSource.Play();
+            PlaySFX(nar2);
         }
 
 

@@ -6,8 +6,10 @@ using static UnityEditor.PlayerSettings;
 public class HidraController : MonoBehaviour
 {
     [SerializeField] private GameObject venom;
+    [SerializeField] private GameObject smoke;
     private Animator hidraAnim;
     private float attackTime;
+    private float time;
     private Vector3 initpos;
     private bool isAttacking;
     private int heads = 3;
@@ -23,22 +25,27 @@ public class HidraController : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > attackTime && !isAttacking)
+        time += Time.deltaTime;
+        if (time > attackTime && !isAttacking)
         {
             StartCoroutine (Attack());
+            time = 0;
         }
+        Death();
     }
  
     private IEnumerator Attack()
     {
+        Debug.Log("atacó");
         isAttacking = true;
+        audiop.PlaySFX(audiop.hidraAttack);
         hidraAnim.SetBool("isAtacking", true);
         yield return new WaitForSeconds(0.5f);
         initpos = transform.position + new Vector3(-33, 44, 0);
         Instantiate(venom,initpos,Quaternion.identity);
         yield return new WaitForSeconds (0.5f);
         hidraAnim.SetBool("isAtacking", false);
-        attackTime += Random.Range(6,10);
+        attackTime = Random.Range(6,10);
         isAttacking = false;
     }
 
@@ -46,6 +53,20 @@ public class HidraController : MonoBehaviour
     {
         heads--;
         audiop.PlaySFX(audiop.hidraHit);
+<<<<<<< HEAD
         hidraAnim.SetInteger("heads", heads);
+=======
+        hidraAnim.SetInteger("heads",heads);
+>>>>>>> 4794721e9d811a0ee56e6a8450513fdab445ebbf
+    }
+
+    private void Death()
+    {
+        if (heads < 1)
+        {
+            audiop.PlaySFX(audiop.hidraDeath);
+            Destroy(smoke);
+            Destroy(gameObject);
+        }
     }
 }

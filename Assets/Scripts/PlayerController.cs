@@ -186,6 +186,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Gem"))
         {
             Destroy(other.gameObject);
+            rbPlayer.Sleep();
 
             switch (sceneManager.actual)
             {
@@ -193,7 +194,7 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(CollectGems(4f, "Forest"));
                     break;
                 case "Forest":
-                    StartCoroutine(CollectGems(4.3f, "HidraCombat"));
+                    StartCoroutine(CollectGems(4.3f, "moiras"));
                     break;
             }
         }

@@ -81,10 +81,10 @@ public class PlayerLevel3 : MonoBehaviour
     private IEnumerator Attack()
     {
         isAttacking = true;
+        audiop.PlaySFX(audiop.irisAttack);
         controlAnim.SetBool("isAttacking", true);
         initpos = transform.position + attackOffset;
         Instantiate(power, initpos, Quaternion.identity);
-        yield return new WaitForSeconds(10f);
         yield return new WaitForSeconds(0.5f);
         controlAnim.SetBool("isAttacking", false);
         yield return new WaitForSeconds(attackCooldown);
