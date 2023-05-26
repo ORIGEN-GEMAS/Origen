@@ -6,93 +6,88 @@ using UnityEngine;
 
 public class PlayerLevel3 : MonoBehaviour
 {
-    
-    [SerializeField] private float jumpSpeed;
-    [SerializeField] private Animator controlAnim;
-    private AudioManager audiop;
+    [Header("Player Properties")]
+    [SerializeField] private float jumpSpeed = 20f;
     [SerializeField] private GameObject power;
-    [SerializeField] private GameObject player;
+    [SerializeField] private Vector3 attackOffset = new Vector3(10f, 12f, 0);
+    [SerializeField] private float attackCooldown = 5f;
+
+    [Header("UI")]
     [SerializeField] private GameObject panelDeath;
-    
-    private float attackTime;
+
+    private Rigidbody2D rbPlayer;
+    private Animator controlAnim;
+    private AudioManager audiop;
+
     private Vector3 initpos;
     private bool isGround = true;
     private bool isAttacking;
-    private Rigidbody2D rbPlayer;
+    private float attackTime;
     
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        rbPlayer = GetComponent<Rigidbody2D>();
-        controlAnim = GetComponent<Animator>();
-        audiop = FindAnyObjectByType<AudioManager>();
-        
+        if(rbPlayer == null)
+            rbPlayer = GetComponent<Rigidbody2D>();
+
+        if(controlAnim == null)
+            controlAnim = GetComponent<Animator>();
+
+        if(audiop == null)
+            audiop = FindObjectOfType<AudioManager>(); 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
-        if ((Input.GetKeyDown(KeyCode.Space) && isGround))
-        {
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
             Jump();
-           
-        }
+
         if ((Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow)) && !isAttacking && isGround)
-        {
             StartCoroutine(Attack());
-        }
-     
     }
 
-    /// <summary>
-    /// This method is responsible for the player's jump action and animation.
-    /// </summary>
     private void Jump()
     {
         controlAnim.SetBool("IsJumping", true);
         rbPlayer.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
-        //audiop.PlaySFX(audiop.jump);
         isGround = false;
         audiop.PlaySFX(audiop.jump);
-        Debug.Log("Si entre");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
-        {
-            isGround = true;
-            controlAnim.SetBool("IsJumping", false);
-            
-        }
-
-        
+            Land();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("venom"))
-        {
-            panelDeath.SetActive(true);
-            audiop.PlaySFX(audiop.death);
-            Destroy(player);
-            Debug.Log("Me pego");
-        }
+            HandleDeath();
     }
 
-    IEnumerator Attack()
+    private void Land()
+    {
+        isGround = true;
+        controlAnim.SetBool("IsJumping", false);
+    }
+
+    private void HandleDeath()
+    {
+        panelDeath.SetActive(true);
+        audiop.PlaySFX(audiop.death);
+        Destroy(gameObject);
+    }
+
+    private IEnumerator Attack()
     {
         isAttacking = true;
         controlAnim.SetBool("isAttacking", true);
-        initpos = transform.position + new Vector3(-79,-4.2f, 0);
+        initpos = transform.position + attackOffset;
         Instantiate(power, initpos, Quaternion.identity);
         yield return new WaitForSeconds(10f);
         yield return new WaitForSeconds(0.5f);
         controlAnim.SetBool("isAttacking", false);
+        yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
-
     }
-
-
 }

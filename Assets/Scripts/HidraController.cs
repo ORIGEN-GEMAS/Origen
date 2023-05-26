@@ -14,7 +14,6 @@ public class HidraController : MonoBehaviour
     private AudioManager audiop;
     
 
-
     private void Start()
     {
         audiop = FindAnyObjectByType<AudioManager>();
@@ -29,9 +28,8 @@ public class HidraController : MonoBehaviour
             StartCoroutine (Attack());
         }
     }
-
-    
-    IEnumerator  Attack()
+ 
+    private IEnumerator Attack()
     {
         isAttacking = true;
         hidraAnim.SetBool("isAtacking", true);
@@ -44,10 +42,10 @@ public class HidraController : MonoBehaviour
         isAttacking = false;
     }
 
-
     public void Damage()
     {
         heads--;
-        hidraAnim.SetInteger("heads",heads);
+        audiop.PlaySFX(audiop.hidraHit);
+        hidraAnim.SetInteger("heads", heads);
     }
 }

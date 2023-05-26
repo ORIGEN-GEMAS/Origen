@@ -48,8 +48,6 @@ public class Frog : MonoBehaviour {
         }
     }
 
-    
-
     private void SetForceAndDelay()
     {
         randomJumpDelay = Random.Range(minJumpDelay, maxJumpDelay);

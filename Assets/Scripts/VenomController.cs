@@ -10,26 +10,22 @@ public class VenomController : MonoBehaviour
     private void VenomMovement()
     {
         Vector3 dir = (posFocus.position - transform.position).normalized;
-        Vector3 posChange = dir * 41 * Time.fixedDeltaTime;
-         gameObject.transform.position += posChange;
-
-       }
+        Vector3 posChange = dir * speed * Time.fixedDeltaTime;
+        Debug.Log(posChange);
+        gameObject.transform.position += posChange;
+    }
 
     void Start()
     {
         posFocus = GameObject.FindGameObjectWithTag("focus").transform;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         VenomMovement();
         KillVenom();
     }
    
-
-    
-
     private void KillVenom()
     {
         float x = transform.position.x;
