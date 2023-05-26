@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip hidraHit;
     public AudioClip hidraDeath;
     public AudioClip irisAttack;
+    public AudioClip victory;
 
     /*private void Awake()
     {

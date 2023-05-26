@@ -24,6 +24,7 @@ public class PlayerLevel3 : MonoBehaviour
     private Animator shoot1;
     private Animator shoot2;
     private AudioManager audiop;
+    private SceneManage scene;
 
     private Vector3 initpos;
     public bool isGround = true;
@@ -40,6 +41,9 @@ public class PlayerLevel3 : MonoBehaviour
 
         if(audiop == null)
             audiop = FindObjectOfType<AudioManager>();
+        
+        if(scene == null)
+            scene = FindObjectOfType<SceneManage>();
 
         if(shoot1==null)
             shoot1 = gem1.GetComponent<Animator>();
@@ -107,5 +111,17 @@ public class PlayerLevel3 : MonoBehaviour
         shoot2.SetBool("IsShooting", false);
         textGem.SetActive(true);
         isAttacking = false;
+    }
+    public void HidraIsDeath()
+    {
+        isGround = false;
+        StartCoroutine(ChangetoFinal());
+    }
+    private IEnumerator ChangetoFinal()
+    {
+        audiop.PlaySFX(audiop.victory);
+        yield return new WaitForSeconds(8f);
+        Debug.Log("cambie");
+        scene.ChangeScence("HumanCovert");
     }
 }

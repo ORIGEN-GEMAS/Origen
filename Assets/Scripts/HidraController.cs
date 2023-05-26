@@ -15,10 +15,12 @@ public class HidraController : MonoBehaviour
     private int heads = 3;
     private AudioManager audiop;
     private SceneManage scene;
+    private PlayerLevel3 coru;
     
 
     private void Start()
     {
+        coru = FindAnyObjectByType<PlayerLevel3>();
         scene = FindAnyObjectByType<SceneManage>();
         audiop = FindAnyObjectByType<AudioManager>();
         attackTime = Random.Range(6,10);
@@ -62,16 +64,9 @@ public class HidraController : MonoBehaviour
         if (heads < 1)
         {
             audiop.PlaySFX(audiop.hidraDeath);
-            StartCoroutine(ChangetoFinal());
+            coru.HidraIsDeath();
             Destroy(smoke);
             Destroy(gameObject);
         }
-        
-        
-    }
-    IEnumerator ChangetoFinal()
-    {
-        yield return new WaitForSeconds(10f);
-        scene.ChangeScence("HumanCovert");
     }
 }
