@@ -14,14 +14,20 @@ public class PlayerLevel3 : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject panelDeath;
+    [SerializeField] private GameObject gem1;
+    [SerializeField] private GameObject gem2;
+    [SerializeField] private GameObject textGem;
+
 
     private Rigidbody2D rbPlayer;
     private Animator controlAnim;
+    private Animator shoot1;
+    private Animator shoot2;
     private AudioManager audiop;
 
     private Vector3 initpos;
-    private bool isGround = true;
-    private bool isAttacking;
+    public bool isGround = true;
+    public bool isAttacking;
     private float attackTime;
     
     private void Start()
@@ -33,7 +39,13 @@ public class PlayerLevel3 : MonoBehaviour
             controlAnim = GetComponent<Animator>();
 
         if(audiop == null)
-            audiop = FindObjectOfType<AudioManager>(); 
+            audiop = FindObjectOfType<AudioManager>();
+
+        if(shoot1==null)
+            shoot1 = gem1.GetComponent<Animator>();
+        
+        if(shoot2==null)
+            shoot2 = gem2.GetComponent<Animator>();
     }
 
     private void Update()
@@ -83,11 +95,17 @@ public class PlayerLevel3 : MonoBehaviour
         isAttacking = true;
         audiop.PlaySFX(audiop.irisAttack);
         controlAnim.SetBool("isAttacking", true);
+        shoot1.SetBool("IsShooting", true);
+        shoot2.SetBool("IsShooting", true);
+        textGem.SetActive(false);
         initpos = transform.position + attackOffset;
         Instantiate(power, initpos, Quaternion.identity);
         yield return new WaitForSeconds(0.5f);
         controlAnim.SetBool("isAttacking", false);
         yield return new WaitForSeconds(attackCooldown);
+        shoot1.SetBool("IsShooting", false);
+        shoot2.SetBool("IsShooting", false);
+        textGem.SetActive(true);
         isAttacking = false;
     }
 }

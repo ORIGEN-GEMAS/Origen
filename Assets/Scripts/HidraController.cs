@@ -62,10 +62,11 @@ public class HidraController : MonoBehaviour
         if (heads < 1)
         {
             audiop.PlaySFX(audiop.hidraDeath);
+            StartCoroutine(ChangetoFinal());
             Destroy(smoke);
             Destroy(gameObject);
         }
-        StartCoroutine(ChangetoFinal());
+        
         
     }
     IEnumerator ChangetoFinal()
