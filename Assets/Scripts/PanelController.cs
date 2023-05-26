@@ -27,6 +27,10 @@ public class PanelController : MonoBehaviour
         {
             StartCoroutine(PanelDurationF(6f));
         }
+        else if (SceneManager.GetActiveScene().name == "moiras")
+        {
+            StartCoroutine(PanelDuration(17f));
+        }
         else if (SceneManager.GetActiveScene().name == "HidraCombat")
         {
             StartCoroutine(PanelDurationF(4.5f));

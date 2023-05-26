@@ -60,6 +60,13 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = forestWorld;
             musicSource.Play();
         }
+        if (SceneManager.GetActiveScene().name == "moiras")
+        {
+            musicSource.Pause();
+            musicSource.clip = gameplay;
+            musicSource.Play();
+            PlaySFX(nar2);
+        }
 
 
     }

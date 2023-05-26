@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(CollectGems(4f, "Forest"));
                     break;
                 case "Forest":
-                    StartCoroutine(CollectGems(4.3f, "HidraCombat"));
+                    StartCoroutine(CollectGems(4.3f, "moiras"));
                     break;
             }
         }
