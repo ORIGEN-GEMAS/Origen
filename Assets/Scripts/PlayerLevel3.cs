@@ -25,6 +25,7 @@ public class PlayerLevel3 : MonoBehaviour
     private Animator shoot2;
     private AudioManager audiop;
     private SceneManage scene;
+    private SceneTransition sceneTransition;
 
     private Vector3 initpos;
     public bool isGround = true;
@@ -33,6 +34,7 @@ public class PlayerLevel3 : MonoBehaviour
     
     private void Start()
     {
+        sceneTransition = FindAnyObjectByType<SceneTransition>();
         if(rbPlayer == null)
             rbPlayer = GetComponent<Rigidbody2D>();
 
@@ -122,6 +124,7 @@ public class PlayerLevel3 : MonoBehaviour
         audiop.PlaySFX(audiop.victory);
         yield return new WaitForSeconds(8f);
         Debug.Log("cambie");
-        scene.ChangeScence("HumanCovert");
+        sceneTransition.Startcorutina("HumanCovert");
+        //scene.ChangeScence("HumanCovert");
     }
 }

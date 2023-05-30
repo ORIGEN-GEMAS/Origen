@@ -419,6 +419,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 634631912}
+  - {fileID: 646163243}
   - {fileID: 1537307069}
   - {fileID: 869881069}
   m_Father: {fileID: 1199144633}
@@ -810,12 +811,12 @@ RectTransform:
   - {fileID: 358038422}
   - {fileID: 1393006126}
   - {fileID: 1869221953}
-  m_Father: {fileID: 1537307069}
-  m_RootOrder: 4
+  m_Father: {fileID: 485755522}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.9361877, y: -225.21503}
+  m_AnchoredPosition: {x: 217.9362, y: 12.785004}
   m_SizeDelta: {x: 618.2285, y: 25.569}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &646163244
@@ -865,7 +866,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 0.506
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1459,7 +1460,7 @@ RectTransform:
   - {fileID: 2023086254}
   - {fileID: 1690573554}
   m_Father: {fileID: 485755522}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.29759535}
   m_AnchorMax: {x: 0.5, y: 0.29759535}
@@ -2795,9 +2796,8 @@ RectTransform:
   - {fileID: 1387099771}
   - {fileID: 942579372}
   - {fileID: 169571586}
-  - {fileID: 646163243}
   m_Father: {fileID: 485755522}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2851,7 +2851,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2964,6 +2964,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1946576456}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: Startcorutina
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: born
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1642145031
@@ -3648,7 +3660,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animacionFinal: {fileID: 7400000, guid: d8b41f0b02f5da243a3441eb32b69324, type: 2}
-  inicio: {fileID: 1642145030}
 --- !u!1 &1953927549
 GameObject:
   m_ObjectHideFlags: 0

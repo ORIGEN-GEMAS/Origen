@@ -16208,7 +16208,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -16454,7 +16454,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animacionFinal: {fileID: 7400000, guid: d8b41f0b02f5da243a3441eb32b69324, type: 2}
-  inicio: {fileID: 0}
 --- !u!114 &574568088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17662,7 +17661,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

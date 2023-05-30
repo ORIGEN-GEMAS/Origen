@@ -8,12 +8,14 @@ using UnityEngine.SceneManagement;
 public class SceneManage : MonoBehaviour
 {
     private AudioManager sfx;
+    private SceneTransition sceneTransition;
     public string actual;//Esta linea se puede borrar para no tener conflictos en otros proyectos
 
     private void Start()
     {
         // Metodo para buscar un audio e inicializarlo
         sfx = FindObjectOfType<AudioManager>();
+        sceneTransition = FindAnyObjectByType<SceneTransition>();
         actual = SceneManager.GetActiveScene().name;//Esta linea se puede borrar para no tener conflictos en otros proyectos
         if (actual == "moiras")
         {
@@ -65,6 +67,7 @@ public class SceneManage : MonoBehaviour
     IEnumerator Moiras(float time)
     {
         yield return new WaitForSeconds(time);
-        ChangeScence("HidraCombat");
+        sceneTransition.Startcorutina("HidraCombat");
+        //ChangeScence("HidraCombat");
     }
 }

@@ -10,11 +10,13 @@ public class PanelController : MonoBehaviour
     [SerializeField] GameObject panelESC;
     [SerializeField] GameObject[] credits;
     [SerializeField] Animator fade;
+    private SceneTransition sceneTransition;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        sceneTransition = FindAnyObjectByType<SceneTransition>();
         if (SceneManager.GetActiveScene().name=="Red World")
         {
             StartCoroutine(PanelDuration(6f));
@@ -73,7 +75,8 @@ public class PanelController : MonoBehaviour
         yield return new WaitForSeconds(tiempo);
         Invoke("FadeOutText", tiempo);
         credits[5].SetActive(false);
-        SceneManager.LoadScene("Red World");
+        sceneTransition.Startcorutina("Red World");
+        //SceneManager.LoadScene("Red World");
     }
     IEnumerator PanelDurationF(float tiempo)
     {

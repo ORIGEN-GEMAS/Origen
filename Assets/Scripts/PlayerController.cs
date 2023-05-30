@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 crouchOffset; 
     private bool isCrouching = false;  
     private bool isGrounded = true;
+    private SceneTransition sceneTransition;
 
 
     private void Awake()
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        sceneTransition = FindAnyObjectByType<SceneTransition>();
         sceneManager = FindAnyObjectByType<SceneManage>();
         audioManager = FindAnyObjectByType<AudioManager>();
 
@@ -183,7 +185,8 @@ public class PlayerController : MonoBehaviour
     {
         audioManager.PlaySFX(audioManager.takeGems);
         yield return new WaitForSeconds(delay);
-        sceneManager.ChangeScence(nextScene);
+        sceneTransition.Startcorutina(nextScene);
+        //sceneManager.ChangeScence(nextScene);
     } 
 
     private void OnTriggerEnter2D(Collider2D other)

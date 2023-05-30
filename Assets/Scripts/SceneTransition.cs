@@ -8,20 +8,15 @@ public class SceneTransition : MonoBehaviour
 {
     private Animator animator;
     [SerializeField] private AnimationClip animacionFinal;
-    [SerializeField] private Button inicio;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        if (SceneManager.GetActiveScene().name == "Inicio")
-        {
-            inicio.onClick.AddListener(Startcorutina);
-        }
     }
 
-    private void Startcorutina()
+    public void Startcorutina(string scena)
     {
-        StartCoroutine(ChangeScene("born"));
+        StartCoroutine(ChangeScene(scena));
     }
 
     IEnumerator ChangeScene(string scena)
