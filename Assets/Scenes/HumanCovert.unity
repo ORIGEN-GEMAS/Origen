@@ -26203,10 +26203,10 @@ RectTransform:
   m_Father: {fileID: 1048532998}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -202, y: 194}
-  m_SizeDelta: {x: 309.57495, y: 304.1682}
+  m_AnchoredPosition: {x: 717, y: 229}
+  m_SizeDelta: {x: -1545.7671, y: 326.9895}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748462287
 MonoBehaviour:
@@ -26265,7 +26265,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 423516718}
         m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
         m_MethodName: Startcorutina
         m_Mode: 5
@@ -26299,7 +26299,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 5b0c84133e6687e4fad0d2f7c72265f4, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
